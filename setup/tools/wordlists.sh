@@ -1,23 +1,26 @@
 #!/bin/bash
 
-# Make our directory
-mkdir -p /opt/tools/wordlists
-cd /opt/tools/wordlists
+if [[ $NO_WORDLISTS != 'yes' ]];
+then
+	# Make our directory
+	mkdir -p /opt/tools/wordlists
+	cd /opt/tools/wordlists
 
-# * APT INSTALLED TOOLS *
+	# * APT INSTALLED TOOLS *
 
-TOOLS = ("seclists")
-apt install -y ${TOOLS[@]}
-for tool in "${TOOLS[@]}"
-do
-	:
-	echo "$tool" >> /opt/tools/wordlists/apt_tools.txt
-done
+	TOOLS=("seclists")
+	apt install -y ${TOOLS[@]}
+	for tool in "${TOOLS[@]}"
+	do
+		:
+		echo "$tool" >> /opt/tools/wordlists/apt_tools.txt
+	done
 
-# * GIT INSTALLED TOOLS *
+	# * GIT INSTALLED TOOLS *
 
-# RobotsDisallowed
-git clone https://github.com/danielmiessler/RobotsDisallowed
+	# RobotsDisallowed
+	git clone https://github.com/danielmiessler/RobotsDisallowed
 
-# FuzzDB
-git clone https://github.com/fuzzdb-project/fuzzdb --depth 1
+	# FuzzDB
+	git clone https://github.com/fuzzdb-project/fuzzdb --depth 1
+fi

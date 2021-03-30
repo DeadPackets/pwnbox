@@ -8,9 +8,10 @@ RUN apt update && apt upgrade -y
 # Install some essentials
 RUN apt install git wget curl python3 python3-dev python3-pip python3-venv python3-setuptools ruby sudo jq nmap -y
 
-# Environment variables needed for build
-ENV NO_PIP_INSTALL='no'
-ENV NO_PYTHON_INSTALL='no'
+# Build arguments needed for build
+ARG NO_PIP_INSTALL='no'
+ARG NO_PYTHON_INSTALL='no'
+ARG NO_WORDLISTS='no'
 
 # Copy and run the setup script
 COPY setup /setup

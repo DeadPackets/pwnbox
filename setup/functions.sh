@@ -2,7 +2,7 @@
 
 # Function to install python requirements given a certain directory
 python_setup_install() {
-	if [[ $NO_PYTHON_INSTALL != 'no' || $DOCKER_TAG != 'light' ]];
+	if [[ $NO_PYTHON_INSTALL = 'no' ]];
 	then
 		cd $1
 		if [[ $2 == '3' ]];
@@ -17,7 +17,7 @@ python_setup_install() {
 
 
 pip_install_reqs() {
-	if [[ $NO_PIP_INSTALL != 'no' || $DOCKER_TAG != 'light' ]];
+	if [[ $NO_PIP_INSTALL = 'no' ]];
 	then
 		cd $1
 		if [[ $2 == '3' ]];

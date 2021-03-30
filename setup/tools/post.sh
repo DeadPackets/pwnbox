@@ -7,7 +7,7 @@ cd /opt/tools/post
 # * GIT INSTALLED TOOLS *
 
 # Chisel
-mkdir chisel && cd chisel
+mkdir -p chisel && cd chisel
 # I am not including all the chisel builds to save space
 curl --silent https://api.github.com/repos/jpillora/chisel/releases/latest | jq .assets[].browser_download_url -r | grep -E "arm|amd|386" | grep -v "darwin" | xargs wget -q
 cd ..
@@ -25,7 +25,7 @@ wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linu
 git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite peas
 
 # pspy
-mkdir pspy && cd pspy
+mkdir -p pspy && cd pspy
 curl --silent https://api.github.com/repos/DominicBreuker/pspy/releases/latest | xargs wget -q
 cd ..
 
