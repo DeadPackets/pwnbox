@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  pwnbox-build:
+  pwnbox:
     build: .
     image: pwnbox:local-build
     container_name: pwnbox
@@ -20,4 +20,4 @@ services:
       - 80:80
       - 443:443
       # ? Forwarding a range of ports to be used for all other pingbacks/reverse shells
-      - 9000:9010
+      - 9000-9010:9000-9010
