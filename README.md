@@ -6,17 +6,16 @@
 
 </p>
 
-
 A container that is based off Kali's official `kali-rolling` container, with extra tools installed and an SSH server setup. The setup is very modular, and can be easily adapted to add/remove tools.
 
 The containers are built every week/commit and are published to **Docker Hub** and **Github Container Registry**.
 
 ## Running the Container
 
-There are two versions of this container available:
+There are two versions of this container available (both have download sizes of around ~2 GB):
 
-* `latest` or`full` -**[~2 GB download,~5.3 GB decompressed]** Has all the tools with their dependencies installed and prepared.
-* `light` -**[~1.9 GB download, ~2.5 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do`pip install -r requirements.txt` for every tool you wish to use.
+* `latest` or`full` -**[~5.3 GB decompressed]** Has all the tools with their dependencies installed and prepared.
+* `light` -**[~2.5 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do`pip install -r requirements.txt` for every tool you wish to use.
 
 ### 1. Pull the Image
 
@@ -103,4 +102,3 @@ Feel free to open Pull Requests with the tool(s) you want to be included! I will
 ## Contributions
 
 PRs are more than welcome! Fix bugs, add features, improve build times, improve container size or anything else. I will gladly merge them once I have reviewed them.
-
