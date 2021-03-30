@@ -10,5 +10,5 @@ for script in ./tools/*.sh; do
 done
 
 # Cleanup
-apt autoremove
-apt autoclean
+apt autoremove -y
+apt autoclean -y
