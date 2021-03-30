@@ -26,6 +26,6 @@ git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-su
 
 # pspy
 mkdir -p pspy && cd pspy
-curl --silent https://api.github.com/repos/DominicBreuker/pspy/releases/latest | xargs wget -q
+curl --silent https://api.github.com/repos/DominicBreuker/pspy/releases/latest | jq .assets[].browser_download_url -r | xargs wget -q
 cd ..
 
