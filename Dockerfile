@@ -16,5 +16,13 @@ ENV NO_PYTHON_INSTALL='no'
 COPY setup /setup
 RUN cd /setup && chmod +x /setup/setup.sh && ./setup.sh
 
-# Run bash
-ENTRYPOINT ["/bin/bash"]
+# Install and setup ssh
+RUN echo "root:toor" | chpasswd
+RUN apt install -y openssh-server openssh-client
+COPY ssh/* /etc/ssh/
+RUN chmod 600 /etc/ssh/ssh_host_*
+RUN mkdir -p /var/run/sshd
+EXPOSE 2222
+
+# Run sshd
+ENTRYPOINT ["/usr/sbin/sshd", "-D", "-e"]
