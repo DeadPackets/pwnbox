@@ -25,5 +25,9 @@ RUN chmod 600 /etc/ssh/ssh_host_*
 RUN mkdir -p /var/run/sshd
 EXPOSE 2222
 
+# Some shell setup
+RUN cp /etc/skel/.* /root/
+RUN touch /root/.hushlogin
+
 # Run sshd
 ENTRYPOINT ["/usr/sbin/sshd", "-D", "-e"]
