@@ -6,10 +6,18 @@ services:
     image: pwnbox:local-build
     container_name: pwnbox
     hostname: pwnbox
+    privileged: true
+    # ! Uncomment if using an OS that supports host networking for Docker
     # network_mode: host
-    # privileged: true
     volumes:
       - $HOME/.pwnbox/home:/root
       - $HOME/.pwnbox/external:/mnt/external
+    # ! Comment this out if host networking is enabled
     ports:
+      # ? SSH Access
       - 2222:2222
+      # ? Forwarding some ports used in restricted reverse shells
+      - 80:80
+      - 443:443
+      # ? Forwarding a range of ports to be used for all other pingbacks/reverse shells
+      - 9000:9010
