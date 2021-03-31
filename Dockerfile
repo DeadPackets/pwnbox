@@ -26,7 +26,7 @@ RUN mkdir -p /var/run/sshd
 EXPOSE 2222
 
 # Some shell setup
-RUN cp /etc/skel/.* /root/
+RUN cp -a /etc/skel/. /root/
 RUN touch /root/.hushlogin
 
 # Run sshd
