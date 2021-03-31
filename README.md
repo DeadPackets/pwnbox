@@ -1,4 +1,4 @@
-# pwnbox
+# PwnBox
 
 <p align="center">
 
@@ -10,12 +10,41 @@ A container that is based off Kali's official `kali-rolling` container, with ext
 
 The containers are built every week/commit and are published to **Docker Hub** and **Github Container Registry**.
 
-## Running the Container
+## Features
+
+* A `zsh` shell with syntax highlighting, auto-suggesstions and more.
+* A fully modular setup allowing for any tool to be added with ease in future builds.
+* All tools installed are organized into their respective categories in `/opt/tools`.
+* Ever installed a tool through `apt` and forgot you did? Pwnbox keeps a list of all `apt` installed tools in `/opt/tools/CATEGORY/apt_tools.txt`.
+* An `ssh` server installed so you can run the container in the background and still access it with ease.
+* Weekly builds ensure the latest version of all your favorite tools are installed.
+
+## Getting Started
 
 There are two versions of this container available (both have download sizes of around ~2 GB):
 
-* `latest` or`full` -**[~5.3 GB decompressed]** Has all the tools with their dependencies installed and prepared.
-* `light` -**[~2.5 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do`pip install -r requirements.txt` for every tool you wish to use.
+* `latest` or `full` - **[~5.3 GB decompressed]** Has all the tools with their dependencies installed and prepared.
+* `light` - **[~2.5 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do`pip install -r requirements.txt` for every tool you wish to use.
+
+### 1. Installing the PwnBox Command
+
+You can easily install the `pwnbox` command to your *nix system using the following command:
+
+```bash
+wget https://raw.githubusercontent.com/DeadPackets/pwnbox/main/pwnbox -O /usr/local/bin/pwnbox && chmod +x /usr/local/bin/pwnbox # Ensure /usr/local/bin is in your $PATH
+```
+
+Alternatively, using `curl`:
+
+```bash
+ curl https://raw.githubusercontent.com/DeadPackets/pwnbox/main/pwnbox -o /usr/local/bin/pwnbox && chmod +x /usr/local/bin/pwnbox # Ensure /usr/local/bin is in your $PATH
+```
+
+### 2. Running PwnBox
+
+TODO
+
+## Manual Setup
 
 ### 1. Pull the Image
 
@@ -82,6 +111,7 @@ You now have access to the container! Remember:
 * `/opt/tools` - this directory contains all the tools installed.
 * `/home/kali` - this is the kali user's home directory, which is persistent with every run.
 * `/mnt/external` - this directory is also persistent with every run, but is meant to exchange files between the container and the host.
+* `/opt/ssh` - this directory is used for ssh keys to be automatically imported into the container on launch.
 
 ## Container Build Arguments
 

@@ -1,0 +1,132 @@
+#!/bin/bash
+
+# * GLOBALS ARE DEFINED HERE *
+PORT_FORWARDING="-p 80:80 -p 443:443 -p 2222:2222 -p 9000-9010:9000-9010"
+
+# * Colors *
+# Reset
+off='\033[0m'       # Text Reset
+
+# Regular Colors
+black='\033[0;30m'        # Black
+red='\033[0;31m'          # Red
+green='\033[0;32m'        # Green
+yellow='\033[0;33m'       # Yellow
+blue='\033[0;34m'         # Blue
+purple='\033[0;35m'       # Purple
+cyan='\033[0;36m'         # Cyan
+white='\033[0;37m'        # White
+
+# Quit function and trapping CTRL+C
+quit() {
+	echo -e "${red}CTRL+C detected. Exiting...${off}"
+	exit 2
+}
+trap quit SIGINT
+trap quit SIGTERM
+
+# Print the banner
+echo -e "${blue}"
+echo " ____                      ____                     ";
+echo "/\  _\`\                   /\  _\`\                   ";
+echo "\ \ \L\ \__  __  __    ___\ \ \L\ \    ___   __  _  ";
+echo " \ \ ,__/\ \/\ \/\ \ /' _ \`\ \  _ <'  / __\`\/\ \/'\ ";
+echo "  \ \ \/\ \ \_/ \_/ \/\ \/\ \ \ \L\ \/\ \L\ \/>  </ ";
+echo "   \ \_\ \ \___x___/'\ \_\ \_\ \____/\ \____//\_/\_\\";
+echo "    \/_/  \/__//__/   \/_/\/_/\/___/  \/___/ \//\/_/";
+echo "                                                    ";
+echo -e "            ${cyan}Version 1.2 -- @DeadPackets             ";
+echo -e "${off}"
+
+# Check if arguments are supplied
+if [[ -z $1  || $1 = '-h' || $1 = '--help' ]]; then
+cat <<EOF
+Usage: $0 [flags] COMMAND [tag_name]
+
+Flags:
+-h, --help	Shows this Usage output.
+
+Commands:
+up, start		Starts the PwnBox container and connects via ssh.
+down, stop		Stops the PwnBox container.
+update, pull		Updates the PwnBox image to the latest build.
+
+Tag Names:
+latest		The full PwnBox image, with dependencies, wordlists, and more installed.
+full		Same as latest.
+light		The lighter version of the PwnBox image.
+EOF
+	exit 0
+fi
+
+# If no tagname specified, assume latest
+if [[ -z $2 ]]; then
+	TAG_NAME="latest"
+elif [[ $2 = 'latest' || $2 = 'light' || $2 = 'full' || $2 = 'local-build' ]]; then
+	TAG_NAME="$2"
+else
+	echo -e "${red}Invalid tag name '$2'. Valid values are: latest, full, light.${off}"
+	exit 1
+fi
+echo -e "${purple}=> Image deadpackets/pwnbox:$TAG_NAME selected..."
+
+# Checking if the first agument is valid
+if [[ $1 = 'up' || $1 = 'start' ]]; then
+	# Check if pwnbox is already running
+	PWNBOX_RUNNING=$(docker ps -a -f name=pwnbox -q)
+	if [[ -z $PWNBOX_RUNNING ]]; then
+		# Check if we are running in OSX
+		RUNNING_OS=$(uname -s)
+		if [[ $RUNNING_OS = 'Darwin' ]]; then
+			NETWORK_CMD="$PORT_FORWARDING" # Forward some ports on OSX
+		else
+			NETWORK_CMD="--network host" # Just enable host networking :)
+		fi
+
+		# Check if the image is downloaded
+		PWNBOX_IMAGE_CHECK=$(docker images deadpackets/pwnbox:$TAG_NAME -q)
+		if [[ -z $PWNBOX_IMAGE_CHECK ]]; then
+			echo -e "${yellow}=> PwnBox image not found locally, pulling image...${off}"
+			docker pull deadpackets/pwnbox:$TAG_NAME
+			echo -e "${green}=> PwnBox image pulled successfully!${off}"
+		else
+			echo -e "${blue}=> PwnBox image already downloaded, continuing...${off}"
+		fi
+
+		# Directly bring up the container
+		echo -e "${cyan}=> Launching the PwnBox container...${off}"
+		CONTAINER_ID=$(docker run --rm -d --name pwnbox --privileged --hostname pwnbox $NETWORK_CMD -v $HOME/.pwnbox/home:/root -v $HOME/.pwnbox/external:/mnt/external -v $HOME/.ssh:/opt/ssh:ro deadpackets/pwnbox:$TAG_NAME)
+
+		# SSH into the container
+		echo -e "${green}=> Launched successfully! Logging in with SSH...${off}"
+		ssh root@127.0.0.1 -p 2222
+	else
+		# Container already exists
+		echo -e "${blue}=> Container already exists. Logging in with SSH...${off}"
+		ssh root@127.0.0.1 -p 2222
+	fi
+elif [[ $1 = 'update' || $1 = 'pull' ]]; then
+	if [[ $TAG_NAME != 'local-build' ]]; then
+		echo -e "${blue}=> Updating deadpackets/pwnbox:$TAG_NAME to the latest version...${off}"
+		docker pull deadpackets/pwnbox:$TAG_NAME
+		echo -e "${green}=> Updated successfully!${off}"
+		exit 0
+	else
+		echo -e "${red}Cannot pull locally built image.${off}"
+		exit 1
+	fi
+elif [[ $1 = 'down' || $1 = 'stop' ]]; then
+	# Check if the container exists
+	PWNBOX_RUNNING=$(docker ps -a -f name=pwnbox -q)
+	if [[ -z $PWNBOX_RUNNING ]]; then
+		echo -e "${red}PwnBox container is not running.${out}"
+	else
+		echo -e "${blue}=> Stopping running PwnBox container...${off}"
+		docker stop $PWNBOX_RUNNING >/dev/null
+		echo -e "${green}=> PwnBox container stopped and removed!${off}"
+		exit 0
+	fi
+else
+	echo -e "${red}Unknown argument '$1' supplied.${off}"
+	exit 1
+fi
