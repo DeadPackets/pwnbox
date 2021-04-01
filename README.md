@@ -1,10 +1,6 @@
 # PwnBox
 
-<p align="center">
-
 ![GitHub](https://img.shields.io/github/license/deadpackets/pwnbox) ![Docker](https://badges.aleen42.com/src/docker.svg) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deadpackets/pwnbox/build-pwnbox-on-commit) ![GitHub last commit](https://img.shields.io/github/last-commit/deadpackets/pwnbox) ![GitHub issues](https://img.shields.io/github/issues/deadpackets/pwnbox) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/full?label=pwnbox%3Afull) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/light?label=pwnbox%3Alight) ![Docker Pulls](https://img.shields.io/docker/pulls/deadpackets/pwnbox)
-
-</p>
 
 A container that is based off Kali's official `kali-rolling` container, with extra tools installed and an SSH server setup. The setup is very modular, and can be easily adapted to add/remove tools.
 
@@ -23,7 +19,7 @@ The containers are built every week/commit and are published to **Docker Hub** a
 
 There are two versions of this container available (both have download sizes of around ~2 GB):
 
-* `latest` or `full` - **[~5.3 GB decompressed]** Has all the tools with their dependencies installed and prepared.
+* `latest` or `full` - **[~5.6 GB decompressed]** Has all the tools with their dependencies installed and prepared.
 * `light` - **[~2.5 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do`pip install -r requirements.txt` for every tool you wish to use.
 
 ### 1. Installing the PwnBox Command

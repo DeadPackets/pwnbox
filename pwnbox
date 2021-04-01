@@ -99,6 +99,7 @@ if [[ $1 = 'up' || $1 = 'start' ]]; then
 
 		# SSH into the container
 		echo -e "${green}=> Launched successfully! Logging in with SSH...${off}"
+		sleep 2 # To allow SSH to be setup
 		ssh root@127.0.0.1 -p 2222
 	else
 		# Container already exists
@@ -122,7 +123,7 @@ elif [[ $1 = 'down' || $1 = 'stop' ]]; then
 		echo -e "${red}PwnBox container is not running.${out}"
 	else
 		echo -e "${blue}=> Stopping running PwnBox container...${off}"
-		docker stop $PWNBOX_RUNNING >/dev/null
+		docker kill $PWNBOX_RUNNING >/dev/null
 		echo -e "${green}=> PwnBox container stopped and removed!${off}"
 		exit 0
 	fi
