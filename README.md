@@ -23,7 +23,7 @@ The containers are built every week/release and are published to **Docker Hub** 
 There are two versions of this container available (both have download sizes of around ~2 GB):
 
 * `latest` or`full` -**[~5.6 GB decompressed]** Has all the tools with their dependencies installed and prepared.
-* `light` -**[~2.5 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do`pip install -r requirements.txt` for every tool you wish to use.
+* `light` -**[~2.6 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do`pip install -r requirements.txt` for every tool you wish to use.
 
 ### 1. Installing the PwnBox Command
 
@@ -63,14 +63,14 @@ You now have access to PwnBox! Remember:
 
 ```bash
 $ pwnbox -h # or --help
- ____                      ____         
-/\  _`\                   /\  _`\       
+ ____                      ____       
+/\  _`\                   /\  _`\     
 \ \ \L\ \__  __  __    ___\ \ \L\ \    ___   __  _  
  \ \ ,__/\ \/\ \/\ \ /' _ `\ \  _ <'  / __`\/\ \/'\ 
   \ \ \/\ \ \_/ \_/ \/\ \/\ \ \ \L\ \/\ \L\ \/>  </ 
    \ \_\ \ \___x___/'\ \_\ \_\ \____/\ \____//\_/\_\
     \/_/  \/__//__/   \/_/\/_/\/___/  \/___/ \//\/_/
-                                        
+                                      
             Version 1.3 -- @DeadPackets   
 
 Usage: ./pwnbox [flags] COMMAND [tag_name]
@@ -123,4 +123,3 @@ Feel free to open Pull Requests with the tool(s) you want to be included! I will
 ## Contributions
 
 PRs are more than welcome! Fix bugs, add features, improve build times, improve container size or anything else. I will gladly merge them once I have reviewed them.
-
