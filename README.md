@@ -13,7 +13,7 @@ The containers are built every week/release and are published to **Docker Hub** 
 * A `zsh` shell with syntax highlighting, auto-suggesstions and more.
 * A fully modular setup allowing for any tool to be added with ease in future builds.
 * All tools installed are organized into their respective categories in `/opt/tools`.
-* Ever installed a tool through `apt` and forgot you did? Pwnbox keeps a list of all `apt` installed tools in`/opt/tools/CATEGORY/apt_tools.txt`.
+* Ever installed a tool through `apt` and forgot you did? Pwnbox keeps a list of all `apt` installed tools in `/opt/tools/CATEGORY/apt_tools.txt`.
 * An `ssh` server installed so you can run the container in the background and still access it with ease.
 * Weekly builds ensure the latest version of all your favorite tools are installed.
 * A companion script to make deploying, destroying and updating PwnBox really easy.
@@ -23,7 +23,7 @@ The containers are built every week/release and are published to **Docker Hub** 
 There are two versions of this container available (both have download sizes of around ~2 GB):
 
 * `latest` or `full` - **[~5.6 GB decompressed]** Has all the tools with their dependencies installed and prepared.
-* `light` - **[~2.6 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do`pip install -r requirements.txt` for every tool you wish to use.
+* `light` - **[~2.6 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do `pip install -r requirements.txt` for every tool you wish to use.
 
 ### 1. Installing the PwnBox Command
 
