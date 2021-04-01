@@ -2,8 +2,6 @@ name: build-pwnbox-on-commit
 
 on:
   push:
-    branches:
-      - 'main'
     tags:
       - 'v*'
 
