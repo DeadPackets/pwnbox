@@ -35,7 +35,7 @@ echo "  \ \ \/\ \ \_/ \_/ \/\ \/\ \ \ \L\ \/\ \L\ \/>  </ ";
 echo "   \ \_\ \ \___x___/'\ \_\ \_\ \____/\ \____//\_/\_\\";
 echo "    \/_/  \/__//__/   \/_/\/_/\/___/  \/___/ \//\/_/";
 echo "                                                    ";
-echo -e "            ${cyan}Version 1.2 -- @DeadPackets             ";
+echo -e "            ${cyan}Version 1.3 -- @DeadPackets             ";
 echo -e "${off}"
 
 # Check if arguments are supplied

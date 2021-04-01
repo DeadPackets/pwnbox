@@ -15,6 +15,13 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       -
+        name: Release
+        uses: ncipollo/release-action@v1
+        with:
+          bodyFile: "CHANGELOG.md"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit: 'main'
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
