@@ -10,11 +10,11 @@ The containers are built every week/release and are published to **Docker Hub** 
 
 ## Features
 
-* A`zsh` shell with syntax highlighting, auto-suggesstions and more.
+* A `zsh` shell with syntax highlighting, auto-suggesstions and more.
 * A fully modular setup allowing for any tool to be added with ease in future builds.
-* All tools installed are organized into their respective categories in`/opt/tools`.
-* Ever installed a tool through`apt` and forgot you did? Pwnbox keeps a list of all`apt` installed tools in`/opt/tools/CATEGORY/apt_tools.txt`.
-* An`ssh` server installed so you can run the container in the background and still access it with ease.
+* All tools installed are organized into their respective categories in `/opt/tools`.
+* Ever installed a tool through `apt` and forgot you did? Pwnbox keeps a list of all `apt` installed tools in`/opt/tools/CATEGORY/apt_tools.txt`.
+* An `ssh` server installed so you can run the container in the background and still access it with ease.
 * Weekly builds ensure the latest version of all your favorite tools are installed.
 * A companion script to make deploying, destroying and updating PwnBox really easy.
 
@@ -22,8 +22,8 @@ The containers are built every week/release and are published to **Docker Hub** 
 
 There are two versions of this container available (both have download sizes of around ~2 GB):
 
-* `latest` or`full` -**[~5.6 GB decompressed]** Has all the tools with their dependencies installed and prepared.
-* `light` -**[~2.6 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do`pip install -r requirements.txt` for every tool you wish to use.
+* `latest` or `full` - **[~5.6 GB decompressed]** Has all the tools with their dependencies installed and prepared.
+* `light` - **[~2.6 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do`pip install -r requirements.txt` for every tool you wish to use.
 
 ### 1. Installing the PwnBox Command
 
@@ -53,9 +53,9 @@ This will download the image if not available, bring up PwnBox container and SSH
 
 You now have access to PwnBox! Remember:
 
-* Explore the installed tools in`/opt/tools`.
-* If you need anything to be persistent, store it in`/root`.
-* If you need to access anything outside the container, store it in`/mnt/external` and access it on your host from`$HOME/.pwnbox/external`.
+* Explore the installed tools in `/opt/tools`.
+* If you need anything to be persistent, store it in `/root`.
+* If you need to access anything outside the container, store it in `/mnt/external` and access it on your host from `$HOME/.pwnbox/external`.
 
 **NOTE:** If you are more interested in downloading and running the container manually, please check the related [wiki section](https://github.com/DeadPackets/pwnbox/wiki/Manual-Setup)
 
@@ -63,14 +63,14 @@ You now have access to PwnBox! Remember:
 
 ```bash
 $ pwnbox -h # or --help
- ____                      ____       
-/\  _`\                   /\  _`\     
+ ____                      ____     
+/\  _`\                   /\  _`\   
 \ \ \L\ \__  __  __    ___\ \ \L\ \    ___   __  _  
  \ \ ,__/\ \/\ \/\ \ /' _ `\ \  _ <'  / __`\/\ \/'\ 
   \ \ \/\ \ \_/ \_/ \/\ \/\ \ \ \L\ \/\ \L\ \/>  </ 
    \ \_\ \ \___x___/'\ \_\ \_\ \____/\ \____//\_/\_\
     \/_/  \/__//__/   \/_/\/_/\/___/  \/___/ \//\/_/
-                                      
+                                    
             Version 1.3 -- @DeadPackets   
 
 Usage: ./pwnbox [flags] COMMAND [tag_name]
@@ -107,7 +107,7 @@ light           The lighter version of the PwnBox image.
 ## Container Build Arguments
 
 * `NO_PIP_INSTALL=yes` to prevent the installation of python dependencies, reducing build time and container size.
-* `NO_PYTHON_INSTALL=yes`to prevent the running of`setup.py` to install python projects and their dependencies, reducing build time and container size.
+* `NO_PYTHON_INSTALL=yes`to prevent the running of `setup.py` to install python projects and their dependencies, reducing build time and container size.
 * `NO_WORDLIST=yes` to prevent downloading any wordlists, like SecLists.
 
 ## Frequently Asked Questions
