@@ -63,15 +63,15 @@ You now have access to PwnBox! Remember:
 
 ```bash
 $ pwnbox -h # or --help
- ____                      ____               
-/\  _`\                   /\  _`\             
+ ____                      ____         
+/\  _`\                   /\  _`\       
 \ \ \L\ \__  __  __    ___\ \ \L\ \    ___   __  _  
  \ \ ,__/\ \/\ \/\ \ /' _ `\ \  _ <'  / __`\/\ \/'\ 
   \ \ \/\ \ \_/ \_/ \/\ \/\ \ \ \L\ \/\ \L\ \/>  </ 
    \ \_\ \ \___x___/'\ \_\ \_\ \____/\ \____//\_/\_\
     \/_/  \/__//__/   \/_/\/_/\/___/  \/___/ \//\/_/
-                                              
-            Version 1.3 -- @DeadPackets       
+                                        
+            Version 1.3 -- @DeadPackets   
 
 Usage: ./pwnbox [flags] COMMAND [tag_name]
 
