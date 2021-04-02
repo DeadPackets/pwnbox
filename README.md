@@ -4,7 +4,7 @@
 
 <p align="center>
 
-![Demo](https://github.com/DeadPackets/pwnbox/raw/main/demo.gif)
+<img src="https://github.com/DeadPackets/pwnbox/raw/main/demo.gif">
 
 </p>
 
