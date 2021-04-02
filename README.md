@@ -2,7 +2,7 @@
 
 ![GitHub](https://img.shields.io/github/license/deadpackets/pwnbox) ![Docker](https://badges.aleen42.com/src/docker.svg) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deadpackets/pwnbox/build-pwnbox-on-commit) ![GitHub last commit](https://img.shields.io/github/last-commit/deadpackets/pwnbox) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/DeadPackets/pwnbox?label=latest-release) ![GitHub issues](https://img.shields.io/github/issues/deadpackets/pwnbox) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/full?label=pwnbox%3Afull) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/light?label=pwnbox%3Alight) ![Docker Pulls](https://img.shields.io/docker/pulls/deadpackets/pwnbox)
 
-<p align="center>
+<p align="center">
 
 <img src="https://github.com/DeadPackets/pwnbox/raw/main/demo.gif">
 
