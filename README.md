@@ -72,8 +72,8 @@ $ pwnbox -h # or --help
   \ \ \/\ \ \_/ \_/ \/\ \/\ \ \ \L\ \/\ \L\ \/>  </ 
    \ \_\ \ \___x___/'\ \_\ \_\ \____/\ \____//\_/\_\
     \/_/  \/__//__/   \/_/\/_/\/___/  \/___/ \//\/_/
-                                  
-            Version 1.3 -- @DeadPackets   
+  
+            Version 1.x.x -- @DeadPackets   
 
 Usage: ./pwnbox [flags] COMMAND [tag_name]
 
