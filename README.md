@@ -65,30 +65,30 @@ You now have access to PwnBox! Remember:
 
 ```bash
 $ pwnbox -h # or --help
- ____                      ____   
-/\  _`\                   /\  _`\   
-\ \ \L\ \__  __  __    ___\ \ \L\ \    ___   __  _  
- \ \ ,__/\ \/\ \/\ \ /' _ `\ \  _ <'  / __`\/\ \/'\ 
-  \ \ \/\ \ \_/ \_/ \/\ \/\ \ \ \L\ \/\ \L\ \/>  </ 
-   \ \_\ \ \___x___/'\ \_\ \_\ \____/\ \____//\_/\_\
-    \/_/  \/__//__/   \/_/\/_/\/___/  \/___/ \//\/_/
-  
-            Version 1.x.x -- @DeadPackets   
+
+██████╗ ██╗    ██╗███╗   ██╗██████╗  ██████╗ ██╗  ██╗
+██╔══██╗██║    ██║████╗  ██║██╔══██╗██╔═══██╗╚██╗██╔╝
+██████╔╝██║ █╗ ██║██╔██╗ ██║██████╔╝██║   ██║ ╚███╔╝
+██╔═══╝ ██║███╗██║██║╚██╗██║██╔══██╗██║   ██║ ██╔██╗
+██║     ╚███╔███╔╝██║ ╚████║██████╔╝╚██████╔╝██╔╝ ██╗
+╚═╝      ╚══╝╚══╝ ╚═╝  ╚═══╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝
+
+            Version v1.x.x -- @DeadPackets
 
 Usage: ./pwnbox [flags] COMMAND [tag_name]
 
 Flags:
--h, --help      Shows this Usage output.
+-h, --help	Shows this Usage output.
 
 Commands:
-up, start               Starts the PwnBox container and connects via ssh.
-down, stop              Stops the PwnBox container.
-update, pull            Updates the PwnBox image to the latest build.
+up, start		Starts the PwnBox container and connects via ssh.
+down, stop		Stops the PwnBox container.
+update, pull		Updates the PwnBox image to the latest build.
 
 Tag Names:
-latest          The full PwnBox image, with dependencies, wordlists, and more installed.
-full            Same as latest.
-light           The lighter version of the PwnBox image.
+latest		The full PwnBox image, with dependencies, wordlists, and more installed.
+full		Same as latest.
+light		The lighter version of the PwnBox image.
 ```
 
 ## Repo Structure
