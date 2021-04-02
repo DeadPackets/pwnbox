@@ -2,6 +2,12 @@
 
 ![GitHub](https://img.shields.io/github/license/deadpackets/pwnbox) ![Docker](https://badges.aleen42.com/src/docker.svg) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deadpackets/pwnbox/build-pwnbox-on-commit) ![GitHub last commit](https://img.shields.io/github/last-commit/deadpackets/pwnbox) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/DeadPackets/pwnbox?label=latest-release) ![GitHub issues](https://img.shields.io/github/issues/deadpackets/pwnbox) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/full?label=pwnbox%3Afull) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/light?label=pwnbox%3Alight) ![Docker Pulls](https://img.shields.io/docker/pulls/deadpackets/pwnbox)
 
+<p align="center>
+
+![Demo](https://github.com/DeadPackets/pwnbox/raw/main/demo.gif)
+
+</p>
+
 Kali VMs are too slow? Don't want to mess up your main OS with hacking tools? Tired of re-installing your tools in the official Kali container? Looking to get started with hacking with the ability to easily rollback! Then PwnBox is just for you! Get a fully working Kali container with SSH access within **minutes**!
 
 PwnBox is a helper script alongside a container that is based off Kali's official `kali-rolling` container, with extra tools installed and an SSH server setup. The setup is very modular, and can be easily adapted to add/remove tools.
