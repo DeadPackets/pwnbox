@@ -4,10 +4,10 @@
 chmod +x ./tools/*.sh
 
 # Execute all tool scripts
-# for script in ./tools/*.sh; do
-# 	echo "Executing $script..."
-# 	bash "$script"
-# done
+for script in ./tools/*.sh; do
+	echo "Executing $script..."
+	bash "$script"
+done
 
 # Setting up the shell
 apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions command-not-found

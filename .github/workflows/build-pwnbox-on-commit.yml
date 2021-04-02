@@ -22,13 +22,6 @@ jobs:
         uses: olegtarasov/get-tag@v2.1
         id: currentTag
       -
-        name: Release
-        uses: ncipollo/release-action@v1
-        with:
-          bodyFile: "CHANGELOG.md"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit: 'main'
-      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
@@ -97,3 +90,12 @@ jobs:
           author_name: Github Action
           author_email: action@github.com
           message: '[GitHub Action] Update VERSION.txt'
+          branch: main
+          push: true
+      -
+        name: Release
+        uses: ncipollo/release-action@v1
+        with:
+          bodyFile: "CHANGELOG.md"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit: 'main'
