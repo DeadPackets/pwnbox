@@ -95,7 +95,7 @@ if [[ $1 = 'up' || $1 = 'start' ]]; then
 
 		# Directly bring up the container
 		echo -e "${cyan}=> Launching the PwnBox container...${off}"
-		CONTAINER_ID=$(docker run --rm -d --name pwnbox --privileged --hostname pwnbox $NETWORK_CMD -v $HOME/.pwnbox/home:/root -v $HOME/.pwnbox/external:/mnt/external -v $HOME/.ssh:/opt/ssh:ro deadpackets/pwnbox:$TAG_NAME)
+		CONTAINER_ID=$(docker run --rm -d --name pwnbox --privileged --hostname pwnbox $NETWORK_CMD -v $HOME/.pwnbox/external:/mnt/external -v $HOME/.ssh:/opt/ssh:ro deadpackets/pwnbox:$TAG_NAME)
 
 		# SSH into the container
 		echo -e "${green}=> Launched successfully! Logging in with SSH...${off}"

@@ -48,7 +48,10 @@ RUN cd /setup && chmod +x /setup/setup.sh && ./setup.sh
 # Expose the SSH port
 EXPOSE 2222
 
-# Copy entrypoint script and run
+# Copy entrypoint script
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+
+# Add the version in of the build in the container
+RUN echo ${BUILD_VERSION} > /opt/VERSION.txt
 ENTRYPOINT ["/entrypoint.sh"]

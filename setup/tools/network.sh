@@ -5,7 +5,7 @@ mkdir -p /opt/tools/network
 cd /opt/tools/network
 
 # * APT INSTALLED TOOLS *
-TOOLS=("smbmap" "responder" "enum4linux" "nbtscan" "onesixtyone" "oscanner" "smbclient" "smtp-user-enum" "snmp" "sslscan" "sipvicious" "tnscmd10g" "wkhtmltopdf" "hydra" "joomscan" "odat" "snmpcheck" "ldapscripts" "dnsrecon")
+TOOLS=("smbmap" "responder" "crackmapexec" "enum4linux" "nbtscan" "onesixtyone" "oscanner" "smbclient" "smtp-user-enum" "snmp" "sslscan" "sipvicious" "tnscmd10g" "wkhtmltopdf" "hydra" "joomscan" "odat" "snmpcheck" "ldapscripts" "dnsrecon")
 apt install -y ${TOOLS[@]}
 for tool in "${TOOLS[@]}"
 do
@@ -15,12 +15,9 @@ done
 
 # * GIT INSTALLED TOOLS *
 
-# CrackMapExec
-pip3 install pipx
-pipx install crackmapexec
-
 # Droopescan
 pip3 install droopescan
+echo "droopescan" >> /opt/tools/network/apt_tools.txt
 
 # RustScan
 curl --silent https://api.github.com/repos/RustScan/RustScan/releases/latest | jq .assets[].browser_download_url -r | grep "amd64" | xargs wget -q -O rustscan.deb

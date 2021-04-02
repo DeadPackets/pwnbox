@@ -17,6 +17,8 @@ The containers are built every week/release and are published to **Docker Hub** 
 * An `ssh` server installed so you can run the container in the background and still access it with ease.
 * Weekly builds ensure the latest version of all your favorite tools are installed.
 * A companion script to make deploying, destroying and updating PwnBox really easy.
+* A persistent volume to exchange files with the host OS and persistent any data you need.
+* The option to specify a custom startup script for your own customization!
 
 ## Getting Started
 
@@ -54,8 +56,8 @@ This will download the image if not available, bring up PwnBox container and SSH
 You now have access to PwnBox! Remember:
 
 * Explore the installed tools in `/opt/tools`.
-* If you need anything to be persistent, store it in `/root`.
-* If you need to access anything outside the container, store it in `/mnt/external` and access it on your host from `$HOME/.pwnbox/external`.
+* If you need persistent data or external access, store it in `/mnt/external` and access it on your host from `$HOME/.pwnbox/external`.
+* If you need a custom startup script, store it as `$HOME/.pwnbox/external/pwnbox_entrypoint.sh`.
 
 **NOTE:** If you are more interested in downloading and running the container manually, please check the related [wiki section](https://github.com/DeadPackets/pwnbox/wiki/Manual-Setup)
 
@@ -63,14 +65,14 @@ You now have access to PwnBox! Remember:
 
 ```bash
 $ pwnbox -h # or --help
- ____                      ____     
+ ____                      ____   
 /\  _`\                   /\  _`\   
 \ \ \L\ \__  __  __    ___\ \ \L\ \    ___   __  _  
  \ \ ,__/\ \/\ \/\ \ /' _ `\ \  _ <'  / __`\/\ \/'\ 
   \ \ \/\ \ \_/ \_/ \/\ \/\ \ \ \L\ \/\ \L\ \/>  </ 
    \ \_\ \ \___x___/'\ \_\ \_\ \____/\ \____//\_/\_\
     \/_/  \/__//__/   \/_/\/_/\/___/  \/___/ \//\/_/
-                                    
+                                  
             Version 1.3 -- @DeadPackets   
 
 Usage: ./pwnbox [flags] COMMAND [tag_name]
@@ -100,7 +102,6 @@ light           The lighter version of the PwnBox image.
 ## Container Structure
 
 * `/opt/tools` - this directory contains all the tools installed.
-* `/home/kali` - this is the kali user's home directory, which is persistent with every run.
 * `/mnt/external` - this directory is also persistent with every run, but is meant to exchange files between the container and the host.
 * `/opt/ssh` - this directory is used for ssh keys to be automatically imported into the container on launch.
 
@@ -114,7 +115,7 @@ light           The lighter version of the PwnBox image.
 
 ### What happens to all the tools I install in the container?
 
-Unless those tools are stored in the `/root` volume, they will be gone once the container is started up again or upgraded. Additionally, any libraries/dependencies not installed in `/root` will also be gone.
+Unless those tools are stored in the `/mnt/external` volume, they will be gone once the container is started up again or upgraded. Additionally, any libraries/dependencies not installed in `/mnt/external` will also be gone.
 
 ### Why is tool X or Y not included?
 

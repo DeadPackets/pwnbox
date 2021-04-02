@@ -17,63 +17,25 @@ jobs:
         run: |
           echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%SZ')"
       -
-        name: 'Get Previous tag'
+        name: Get Previous tag
         id: previoustag
-        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        uses: WyriHaximus/github-action-get-previous-tag@v1
       -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v1
+        name: Bump version
+        id: semver
+        uses: WyriHaximus/github-action-next-semvers@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          verion: ${{ steps.previoustag.outputs.tag }}
       -
-        name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+        name: Update files
+        run: |
+          echo "# PwnBox - ${{ steps.semver.outputs.tag }}\nWeekly update." > CHANGELOG.md
       -
-        name: Build and push (full)
-        uses: docker/build-push-action@v2
+        name: Push the updated files
+        uses: EndBug/add-and-commit@v7
         with:
-          context: .
-          push: true
-          build-args:
-            BUILD_DATE=${{ steps.vars.outputs.date }}
-            BUILD_VERSION=${{ steps.previoustag.outputs.tag }}
-            VCF_REF=${GITHUB_SHA::8}
-          tags: |
-            deadpackets/pwnbox:latest
-            ghcr.io/deadpackets/pwnbox:latest
-            deadpackets/pwnbox:full
-            ghcr.io/deadpackets/pwnbox:full
-      -
-        name: Build and push (light)
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          build-args: |
-            NO_PIP_INSTALL='yes'
-            NO_PYTHON_INSTALL='yes'
-            NO_WORDLISTS='yes'
-            BUILD_DATE=${{ steps.vars.outputs.date }}
-            BUILD_VERSION=${{ steps.previoustag.outputs.tag }}
-            VCF_REF=${GITHUB_SHA::8}
-          tags: |
-            deadpackets/pwnbox:light
-            ghcr.io/deadpackets/pwnbox:light
-      -
-        name: Update repo description
-        uses: peter-evans/dockerhub-description@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: deadpackets/pwnbox
+          add: "CHANGELOG.md"
+          author_name: Github Action
+          author_email: action@github.com
+          message: '[GitHub Action] Weekly Update'
+          tag: "${{ steps.semver.outputs.tag }} --force"

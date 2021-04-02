@@ -1,14 +1,14 @@
 #!/bin/bash
 
-PUBLIC_KEYS=$(ls /opt/ssh/*.pub)
+# Set up the shell
+cp -a /etc/skel/. /root/
+echo 'export PATH=$PATH:/root/.local/bin:/usr/share/doc/python3-impacket/examples/' >> /root/.zshrc
+echo 'export LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8' >> /root/.zshrc
+touch /root/.hushlogin
+cp /setup/banner.sh /etc/profile.d/banner.sh
 
-# First check if the volume mounting messed up the home directory
-if [[ -f /root/.zshrc ]]; then
-	echo "Fixing the home directory..."
-	cp -a /etc/skel/. /root/
-	echo 'export PATH=$PATH:/root/.local/bin:/usr/share/doc/python3-impacket/examples/' >> /root/.zshrc
-	touch /root/.hushlogin
-fi
+# Copy public keys into SSH
+PUBLIC_KEYS=$(ls /opt/ssh/*.pub)
 
 if [[ -z $PUBLIC_KEYS ]]; then
 	echo "No public keys found! Only password based SSH will be available!"
@@ -28,6 +28,12 @@ else
 	sort /root/.ssh/authorized_keys.import /root/.ssh/authorized_keys.bak | uniq > /root/.ssh/authorized_keys
 	rm /root/.ssh/authorized_keys.import /root/.ssh/authorized_keys.bak
 	echo "Imported all keys!"
+fi
+
+# See if there is a startup script to run
+if [[ -f /mnt/external/pwnbox_entrypoint.sh ]]; then
+	chmod +x /mnt/external/pwnbox_entrypoint.sh
+	/mnt/external/pwnbox_entrypoint.sh # run the script
 fi
 
 # Launch ssh

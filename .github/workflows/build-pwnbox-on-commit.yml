@@ -85,3 +85,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           repository: deadpackets/pwnbox
+      -
+        name: Update VERSION.txt
+        run: |
+          echo "${{ steps.currentTag.outputs.tag }}" > VERSION.txt
+      -
+        name: Push the updated VERSION.txt
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: 'VERSION.txt'
+          author_name: Github Action
+          author_email: action@github.com
+          message: '[GitHub Action] Update VERSION.txt'
