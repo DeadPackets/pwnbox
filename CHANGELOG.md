@@ -1,4 +1,5 @@
-# PwnBox - v1.5.1
+# PwnBox - v1.5.2
 
-* Fixed an accidental commenting out of the setup logic.
-* Patched the Github Action
+* Patched the weekly Github Action
+* Added `python-is-python3` in the container. This helps run impacket scripts.
+* Decided against adding python2, that is up to your specific use case.
