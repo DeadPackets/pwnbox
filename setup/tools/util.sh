@@ -2,7 +2,7 @@
 
 
 # * APT INSTALLED UTILS *
-apt install -y nano tmux watch micro htop
+apt install -y nano tmux watch micro htop ftp
 
 # * GIT INSTALLED UTILS *
 

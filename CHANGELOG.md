@@ -1,5 +1,14 @@
-# PwnBox - v1.5.2
+# PwnBox - v1.6.0
 
-* Patched the weekly Github Action
-* Added `python-is-python3` in the container. This helps run impacket scripts.
-* Decided against adding python2, that is up to your specific use case.
+#### Newly Added Tools
+
+* I cannot believe I forgot to include `netcat`
+* I also cannot believe to install `ftp`
+* Added `pwncat`
+* Added `WinPwn`
+* Added `evasion` subcategory with 2 Powershell obfuscators, `Chimera` and `Invoke-Obfuscation`
+* Added `windows-kernel-exploits`
+
+#### Build Changes
+
+* Future builds will now push an image with the current tag. For example, this build will push an image with the tag `full-v1.6.0`.

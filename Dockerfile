@@ -27,7 +27,7 @@ USER root
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt update && \
 	apt upgrade -y && \
-	apt install -y locales git wget curl python3 python3-dev python3-pip python3-venv python3-setuptools python-is-python3 ruby sudo jq nmap
+	apt install -y locales git wget curl python3 python3-dev python3-pip python3-venv python3-setuptools python-is-python3 netcat ruby sudo jq nmap
 
 # Set the locale
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
