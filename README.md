@@ -28,10 +28,10 @@ The containers are built every week/release and are published to **Docker Hub** 
 
 ## Getting Started
 
-There are two versions of this container available (both have download sizes of around ~2 GB):
+There are two versions of this container available (both have download sizes of around ~3 GB):
 
 * `latest` or `full` - **[~5.6 GB decompressed]** Has all the tools with their dependencies installed and prepared.
-* `light` - **[~2.6 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do `pip install -r requirements.txt` for every tool you wish to use.
+* `light` - **[~3.0 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do `pip install -r requirements.txt` for every tool you wish to use.
 
 ### 1. Installing the PwnBox Command
 
