@@ -9,7 +9,7 @@ python_setup_install() {
 		then
 			python3 setup.py install
 		else
-			python2 setup.py install
+			python2.7 setup.py install
 		fi
 		cd ..
 	fi
@@ -24,7 +24,7 @@ pip_install_reqs() {
 		then
 			pip3 install -r requirements.txt
 		else
-			pip2 install -r requirements.txt
+			python2.7 -m pip install -r requirements.txt
 		fi
 		cd ..
 	fi

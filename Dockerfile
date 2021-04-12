@@ -27,7 +27,8 @@ USER root
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt update && \
 	apt upgrade -y && \
-	apt install -y locales git wget curl python3 python3-dev python3-pip python3-venv python3-setuptools python-is-python3 netcat ruby sudo jq nmap
+	apt install -y locales git wget curl python2.7 python3 python3-dev python3-pip python3-venv python3-setuptools python-is-python3 netcat ruby sudo jq nmap
+RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py -O /tmp/get-pip.py && python2.7 /tmp/get-pip.py && rm /tmp/get-pip.py
 
 # Set the locale
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \

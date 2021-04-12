@@ -53,29 +53,8 @@ jobs:
           tags: |
             deadpackets/pwnbox:latest
             ghcr.io/deadpackets/pwnbox:latest
-            deadpackets/pwnbox:full
-            ghcr.io/deadpackets/pwnbox:full
-            deadpackets/pwnbox:full-${{ steps.currentTag.outputs.tag }}
-            ghcr.io/deadpackets/pwnbox:full-${{ steps.currentTag.outputs.tag }}
-
-      -
-        name: Build and push (light)
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          build-args: |
-            NO_PIP_INSTALL='yes'
-            NO_PYTHON_INSTALL='yes'
-            NO_WORDLISTS='yes'
-            BUILD_DATE=${{ steps.vars.outputs.date }}
-            BUILD_VERSION=${{ steps.currentTag.outputs.tag }}
-            VCF_REF=${GITHUB_SHA::8}
-          tags: |
-            deadpackets/pwnbox:light
-            ghcr.io/deadpackets/pwnbox:light
-            deadpackets/pwnbox:light-${{ steps.currentTag.outputs.tag }}
-            ghcr.io/deadpackets/pwnbox:light-${{ steps.currentTag.outputs.tag }}
+            deadpackets/pwnbox:${{ steps.currentTag.outputs.tag }}
+            ghcr.io/deadpackets/pwnbox:${{ steps.currentTag.outputs.tag }}
       -
         name: Update repo description
         uses: peter-evans/dockerhub-description@v2

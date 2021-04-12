@@ -42,5 +42,5 @@ pip_install_reqs "dirsearch" "3"
 
 # tplmap
 git clone https://github.com/epinna/tplmap
-pip_install_reqs "tplmap" "3"
+pip_install_reqs "tplmap" "2"
 
