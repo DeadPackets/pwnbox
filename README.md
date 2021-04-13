@@ -1,6 +1,6 @@
 # PwnBox
 
-![GitHub](https://img.shields.io/github/license/deadpackets/pwnbox) ![Docker](https://badges.aleen42.com/src/docker.svg) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deadpackets/pwnbox/build-pwnbox-on-commit) ![GitHub last commit](https://img.shields.io/github/last-commit/deadpackets/pwnbox) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/DeadPackets/pwnbox?label=latest-release) ![GitHub issues](https://img.shields.io/github/issues/deadpackets/pwnbox) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/full?label=pwnbox%3Afull) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/light?label=pwnbox%3Alight) ![Docker Pulls](https://img.shields.io/docker/pulls/deadpackets/pwnbox)
+![GitHub](https://img.shields.io/github/license/deadpackets/pwnbox) ![Docker](https://badges.aleen42.com/src/docker.svg) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deadpackets/pwnbox/build-pwnbox-on-commit) ![GitHub last commit](https://img.shields.io/github/last-commit/deadpackets/pwnbox) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/DeadPackets/pwnbox?label=latest-release) ![GitHub issues](https://img.shields.io/github/issues/deadpackets/pwnbox) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/latest?label=pwnbox%3Alatest) ![Docker Pulls](https://img.shields.io/docker/pulls/deadpackets/pwnbox)
 
 <p align="center">
 
@@ -21,30 +21,20 @@ The containers are built every week/release and are published to **Docker Hub** 
 * All tools installed are organized into their respective categories in `/opt/tools`.
 * Ever installed a tool through `apt` and forgot you did? Pwnbox keeps a list of all `apt` installed tools in `/opt/tools/CATEGORY/apt_tools.txt`.
 * An `ssh` server installed so you can run the container in the background and still access it with ease.
+* X11 forwarding so you can run GUI applications if needed.
 * Weekly builds ensure the latest version of all your favorite tools are installed.
-* A companion script to make deploying, destroying and updating PwnBox really easy.
+* A companion CLI tool ([pwnbox-cli](https://github.com/deadpackets/pwnbox-cli)) to make deploying, destroying and updating PwnBox really easy.
 * A persistent volume to exchange files with the host OS and persistent any data you need.
 * The option to specify a custom startup script for your own customization!
 
 ## Getting Started
 
-There are two versions of this container available (both have download sizes of around ~2 GB):
-
-* `latest` or `full` - **[~5.6 GB decompressed]** Has all the tools with their dependencies installed and prepared.
-* `light` - **[~2.6 GB decompressed]** Has no wordlists, none of the tools' dependencies installed, and you will need to do `pip install -r requirements.txt` for every tool you wish to use.
-
 ### 1. Installing the PwnBox Command
 
-You can easily install the `pwnbox` command to your *nix system using the following command:
+You can easily install the `pwnbox` command to your system using the following command:
 
 ```bash
-wget https://raw.githubusercontent.com/DeadPackets/pwnbox/main/pwnbox -O /usr/local/bin/pwnbox && chmod +x /usr/local/bin/pwnbox # Ensure /usr/local/bin is in your $PATH
-```
-
-Alternatively, using `curl`:
-
-```bash
-curl https://raw.githubusercontent.com/DeadPackets/pwnbox/main/pwnbox -o /usr/local/bin/pwnbox && chmod +x /usr/local/bin/pwnbox # Ensure /usr/local/bin is in your $PATH
+pip install pwnbox # Python >=3.6
 ```
 
 ### 2. Running PwnBox
@@ -52,7 +42,7 @@ curl https://raw.githubusercontent.com/DeadPackets/pwnbox/main/pwnbox -o /usr/lo
 With the command now installed, you can simply run `pwnbox` as shown:
 
 ```bash
-pwnbox up latest # you can replace "latest" with whatever TAG_NAME you wish
+pwnbox up
 ```
 
 This will download the image if not available, bring up PwnBox container and SSH you in!
@@ -69,33 +59,7 @@ You now have access to PwnBox! Remember:
 
 ## PwnBox Usage
 
-```bash
-$ pwnbox -h # or --help
-
-██████╗ ██╗    ██╗███╗   ██╗██████╗  ██████╗ ██╗  ██╗
-██╔══██╗██║    ██║████╗  ██║██╔══██╗██╔═══██╗╚██╗██╔╝
-██████╔╝██║ █╗ ██║██╔██╗ ██║██████╔╝██║   ██║ ╚███╔╝
-██╔═══╝ ██║███╗██║██║╚██╗██║██╔══██╗██║   ██║ ██╔██╗
-██║     ╚███╔███╔╝██║ ╚████║██████╔╝╚██████╔╝██╔╝ ██╗
-╚═╝      ╚══╝╚══╝ ╚═╝  ╚═══╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝
-
-            Version v1.x.x -- @DeadPackets
-
-Usage: ./pwnbox [flags] COMMAND [tag_name]
-
-Flags:
--h, --help	Shows this Usage output.
-
-Commands:
-up, start		Starts the PwnBox container and connects via ssh.
-down, stop		Stops the PwnBox container.
-update, pull		Updates the PwnBox image to the latest build.
-
-Tag Names:
-latest		The full PwnBox image, with dependencies, wordlists, and more installed.
-full		Same as latest.
-light		The lighter version of the PwnBox image.
-```
+See the usage at [pwnbox-cli](https://github.com/deadpackets/pwnbox-cli)
 
 ## Repo Structure
 
