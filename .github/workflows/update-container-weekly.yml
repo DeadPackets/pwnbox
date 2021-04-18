@@ -43,3 +43,7 @@ jobs:
           author_email: action@github.com
           message: '[GitHub Action] Weekly Update'
           tag: "${{ steps.semver.outputs.v_patch }} --force"
+      -
+        name: Push the latest tag
+        run: |
+          git push origin ${{ steps.semver.outputs.v_patch }}
