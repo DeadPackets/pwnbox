@@ -1,2 +1,3 @@
-# PwnBox - v2.0.4
-Weekly update.
+# PwnBox - v2.0.5
+
+* Hopefully fixes the Github Action issues.

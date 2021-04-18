@@ -53,6 +53,6 @@ EXPOSE 2222
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Add the version in of the build in the container
-RUN echo ${BUILD_VERSION} > /opt/VERSION.txt
+# Add the version of the build in the container
+RUN echo "$BUILD_VERSION" > /opt/VERSION.txt
 ENTRYPOINT ["/entrypoint.sh"]
