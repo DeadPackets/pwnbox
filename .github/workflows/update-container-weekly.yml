@@ -31,7 +31,7 @@ jobs:
       -
         name: Update files
         run: |
-          echo "# PwnBox - ${{ steps.semver.outputs.tag }}\nWeekly update." > CHANGELOG.md
+          echo "# PwnBox - ${{ steps.semver.outputs.v_patch }}\nWeekly update." > CHANGELOG.md
       -
         name: Push the updated files
         uses: EndBug/add-and-commit@v7
@@ -40,4 +40,4 @@ jobs:
           author_name: Github Action
           author_email: action@github.com
           message: '[GitHub Action] Weekly Update'
-          tag: "${{ steps.semver.outputs.tag }} --force"
+          tag: "${{ steps.semver.outputs.v_patch }} --force"
