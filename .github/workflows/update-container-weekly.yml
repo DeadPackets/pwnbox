@@ -31,7 +31,8 @@ jobs:
       -
         name: Update files
         run: |
-          echo "# PwnBox - ${{ steps.semver.outputs.v_patch }}\nWeekly update." > CHANGELOG.md
+          echo "# PwnBox - ${{ steps.semver.outputs.v_patch }" > CHANGELOG.md
+          echo "Weekly update." >> CHANGELOG.md
       -
         name: Push the updated files
         uses: EndBug/add-and-commit@v7
