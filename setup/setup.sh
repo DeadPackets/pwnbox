@@ -10,10 +10,5 @@ for script in ./tools/*.sh; do
 done
 
 # Setting up the shell
-apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions command-not-found
-update-command-not-found && apt-file update
+apt-fast install -y zsh zsh-syntax-highlighting zsh-autosuggestions command-not-found
 chsh -s /bin/zsh
-
-# Cleanup
-apt autoremove -y
-apt autoclean -y

@@ -9,7 +9,7 @@ cd /opt/tools/forensics
 
 # * APT INSTALLED TOOLS *
 TOOLS=("foremost" "apktool" "binwalk" "steghide" "stegsnow" "exiftool" "groff" "tcpflow" "tesseract-ocr")
-apt install -y ${TOOLS[@]}
+apt-fast install -y ${TOOLS[@]}
 for tool in "${TOOLS[@]}"
 do
 	:

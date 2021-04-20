@@ -8,6 +8,9 @@ echo "export DISPLAY=$DISPLAY" >> /root/.zshrc
 touch /root/.hushlogin
 cp /setup/banner.sh /etc/profile.d/banner.sh
 
+# Generate SSH keys
+cat /dev/zero | ssh-keygen -b 2048 -t rsa -q -N ""
+
 # Copy public keys into SSH
 PUBLIC_KEYS=$(ls /opt/ssh/*.pub)
 

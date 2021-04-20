@@ -2,7 +2,7 @@
 
 
 # * APT INSTALLED UTILS *
-apt install -y nano tmux watch micro htop ftp inetutils-ping
+apt-fast install -y nano tmux watch micro htop ftp inetutils-ping nfs-common
 
 # * GIT INSTALLED UTILS *
 

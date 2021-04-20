@@ -9,7 +9,7 @@ cd /opt/tools/web
 
 # * APT INSTALLED TOOLS *
 TOOLS=("ffuf" "sqlmap" "whatweb" "dirb" "gobuster" "nikto" "wfuzz" "wpscan" "httpie" "cewl" "recon-ng" "webshells")
-apt install -y ${TOOLS[@]}
+apt-fast install -y ${TOOLS[@]}
 for tool in "${TOOLS[@]}"
 do
 	:

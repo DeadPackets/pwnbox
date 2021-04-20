@@ -6,7 +6,7 @@ cd /opt/tools/network
 
 # * APT INSTALLED TOOLS *
 TOOLS=("smbmap" "responder" "crackmapexec" "enum4linux" "nbtscan" "onesixtyone" "oscanner" "smbclient" "smtp-user-enum" "snmp" "sslscan" "sipvicious" "tnscmd10g" "wkhtmltopdf" "hydra" "joomscan" "odat" "snmpcheck" "ldapscripts" "dnsrecon")
-apt install -y ${TOOLS[@]}
+apt-fast install -y ${TOOLS[@]}
 for tool in "${TOOLS[@]}"
 do
 	:

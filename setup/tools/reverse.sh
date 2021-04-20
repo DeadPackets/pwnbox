@@ -9,7 +9,7 @@ cd /opt/tools/reverse
 
 # * APT INSTALLED TOOLS *
 TOOLS=("strace" "ltrace" "radare2" "gdb")
-apt install -y ${TOOLS[@]}
+apt-fast install -y ${TOOLS[@]}
 for tool in "${TOOLS[@]}"
 do
 	:
