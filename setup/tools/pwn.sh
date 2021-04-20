@@ -9,7 +9,7 @@ cd /opt/tools/pwn
 
 # * APT INSTALLED TOOLS *
 TOOLS=("libc6-i386" "gdb")
-apt-fast install -y ${TOOLS[@]}
+apt-fast install --no-install-recommends -y ${TOOLS[@]}
 for tool in "${TOOLS[@]}"
 do
 	:

@@ -9,7 +9,7 @@ cd /opt/tools/forensics
 
 # * APT INSTALLED TOOLS *
 TOOLS=("foremost" "apktool" "binwalk" "steghide" "stegsnow" "exiftool" "groff" "tcpflow" "tesseract-ocr")
-apt-fast install -y ${TOOLS[@]}
+apt-fast install --no-install-recommends -y ${TOOLS[@]}
 for tool in "${TOOLS[@]}"
 do
 	:
@@ -30,7 +30,7 @@ echo "jsteg" >> /opt/tools/forensics/apt_tools.txt
 
 
 # Katana
-apt	install -y python-tk tk-dev libffi-dev libssl-dev pandoc libgmp3-dev libzbar-dev tesseract-ocr xsel libpoppler-cpp-dev libmpc-dev libdbus-glib-1-dev ruby libenchant-2-dev apktool nodejs groff binwalk foremost tcpflow poppler-utils exiftool steghide stegsnow bison ffmpeg libgd-dev less libpoppler-cpp-dev pkg-config python3-dbus qpdf
+apt-fast install --no-install-recommends -y python-tk tk-dev libffi-dev libssl-dev pandoc libgmp3-dev libzbar-dev tesseract-ocr xsel libpoppler-cpp-dev libmpc-dev libdbus-glib-1-dev ruby libenchant-2-dev apktool nodejs groff binwalk foremost tcpflow poppler-utils exiftool steghide stegsnow bison ffmpeg libgd-dev less libpoppler-cpp-dev pkg-config python3-dbus qpdf
 ln -s /usr/bin/stegsnow /usr/bin/snow
 git clone https://github.com/JohnHammond/katana
 python_setup_install "katana" "3"

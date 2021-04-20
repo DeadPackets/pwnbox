@@ -7,9 +7,9 @@ python_setup_install() {
 		cd $1
 		if [[ $2 == '3' ]];
 		then
-			python3 setup.py install
+			python3 setup.py install && python3 setup.py clean --all || true
 		else
-			python2.7 setup.py install
+			python2.7 setup.py install && python2.7 setup.py clean --all || true
 		fi
 		cd ..
 	fi

@@ -9,7 +9,7 @@ then
 	# * APT INSTALLED TOOLS *
 
 	TOOLS=("seclists")
-	apt-fast install -y ${TOOLS[@]}
+	apt-fast install --no-install-recommends -y ${TOOLS[@]}
 	for tool in "${TOOLS[@]}"
 	do
 		:

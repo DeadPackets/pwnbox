@@ -9,7 +9,7 @@ cd /opt/tools/crypto
 
 # * APT INSTALLED TOOLS *
 TOOLS=("hash-identifier")
-apt-fast install -y ${TOOLS[@]}
+apt-fast install --no-install-recommends -y ${TOOLS[@]}
 for tool in "${TOOLS[@]}"
 do
 	:

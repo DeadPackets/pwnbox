@@ -9,6 +9,3 @@ for script in ./tools/*.sh; do
 	bash "$script"
 done
 
-# Setting up the shell
-apt-fast install -y zsh zsh-syntax-highlighting zsh-autosuggestions command-not-found
-chsh -s /bin/zsh
