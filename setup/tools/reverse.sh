@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Include our functions
-source functions.sh
+source /setup/functions.sh
 
 # Make our directory
 mkdir -p /opt/tools/reverse

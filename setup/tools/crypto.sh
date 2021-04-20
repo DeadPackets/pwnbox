@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Include our functions
-source functions.sh
+source /setup/functions.sh
 
 # Make our directory
 mkdir -p /opt/tools/crypto
@@ -27,6 +27,6 @@ pip3 install ciphey --upgrade
 echo "ciphey" >> /opt/tools/crypto/apt_tools.txt
 
 # RsaCtfTool
-git clone https://github.com/Ganapati/RsaCtfTool.git
-sudo apt-get install libgmp3-dev libmpc-dev -y
+git clone --single-branch --depth 1 https://github.com/Ganapati/RsaCtfTool.git
+apt-fast --no-install-recommends install libgmp3-dev libmpc-dev -y
 pip_install_reqs "RsaCtfTool" "3"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Include our functions
-source functions.sh
+source /setup/functions.sh
 
 # Make our directory
 mkdir -p /opt/tools/forensics
@@ -32,5 +32,5 @@ echo "jsteg" >> /opt/tools/forensics/apt_tools.txt
 # Katana
 apt-fast install --no-install-recommends -y python-tk tk-dev libffi-dev libssl-dev pandoc libgmp3-dev libzbar-dev tesseract-ocr xsel libpoppler-cpp-dev libmpc-dev libdbus-glib-1-dev ruby libenchant-2-dev apktool nodejs groff binwalk foremost tcpflow poppler-utils exiftool steghide stegsnow bison ffmpeg libgd-dev less libpoppler-cpp-dev pkg-config python3-dbus qpdf
 ln -s /usr/bin/stegsnow /usr/bin/snow
-git clone https://github.com/JohnHammond/katana
+git clone --single-branch --depth 1 https://github.com/JohnHammond/katana
 python_setup_install "katana" "3"

@@ -17,8 +17,8 @@ cd /opt/tools/evasion
 # * GIT INSTALLED TOOLS *
 
 # Chimera
-git clone https://github.com/tokyoneon/Chimera
+git clone --single-branch --depth 1 https://github.com/tokyoneon/Chimera
 
 # Invoke-Obfuscation
-git clone https://github.com/danielbohannon/Invoke-Obfuscation
+git clone --single-branch --depth 1 https://github.com/danielbohannon/Invoke-Obfuscation
 

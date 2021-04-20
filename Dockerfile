@@ -28,10 +28,20 @@ ENV DEBIAN_FRONTEND noninteractive
 # Copy SSH files
 COPY ssh/* /etc/ssh/
 
-# Copy and run the pre-setup and setup script
+# Copy and run the pre-setup and setup scripts
 COPY setup /setup
-RUN cd /setup && chmod +x /setup/pre-setup.sh && ./pre-setup.sh
-RUN cd /setup && chmod +x /setup/setup.sh && ./setup.sh
+RUN cd /setup && chmod +x /setup/* && chmod +x /setup/tools/* && ./pre-setup.sh
+RUN /setup/tools/crypto.sh
+RUN /setup/tools/evasion.sh
+RUN /setup/tools/exploit.sh
+RUN /setup/tools/forensics.sh
+RUN /setup/tools/network.sh
+RUN /setup/tools/post.sh
+RUN /setup/tools/pwn.sh
+RUN /setup/tools/reverse.sh
+RUN /setup/tools/util.sh
+RUN /setup/tools/web.sh
+RUN /setup/tools/wordlists.sh
 
 # Update command-not-found & cleanup
 RUN apt update && update-command-not-found && apt-file update && \

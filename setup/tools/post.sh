@@ -22,7 +22,7 @@ curl --silent https://api.github.com/repos/PercussiveElbow/docker-escape-tool/re
 wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O les.sh
 
 # PEAS
-git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite peas
+git clone --single-branch --depth 1 https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite peas
 
 # pspy
 mkdir -p pspy && cd pspy
@@ -30,7 +30,7 @@ curl --silent https://api.github.com/repos/DominicBreuker/pspy/releases/latest |
 cd ..
 
 # Windows-Kernel-Exploits
-git clone https://github.com/SecWiki/windows-kernel-exploits
+git clone --single-branch --depth 1 https://github.com/SecWiki/windows-kernel-exploits
 
 # WinPwn
-git clone https://github.com/S3cur3Th1sSh1t/WinPwn
+git clone --single-branch --depth 1 https://github.com/S3cur3Th1sSh1t/WinPwn

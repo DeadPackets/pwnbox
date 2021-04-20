@@ -8,19 +8,22 @@ then
 
 	# * APT INSTALLED TOOLS *
 
-	TOOLS=("seclists")
-	apt-fast install --no-install-recommends -y ${TOOLS[@]}
-	for tool in "${TOOLS[@]}"
-	do
-		:
-		echo "$tool" >> /opt/tools/wordlists/apt_tools.txt
-	done
+	# TOOLS=("")
+	# apt-fast install --no-install-recommends -y ${TOOLS[@]}
+	# for tool in "${TOOLS[@]}"
+	# do
+	# 	:
+	# 	echo "$tool" >> /opt/tools/wordlists/apt_tools.txt
+	# done
 
 	# * GIT INSTALLED TOOLS *
 
+	# SecLists
+	git clone --single-branch --depth 1 https://github.com/danielmiessler/SecLists /usr/share/seclists
+
 	# RobotsDisallowed
-	git clone https://github.com/danielmiessler/RobotsDisallowed
+	git clone --single-branch --depth 1 https://github.com/danielmiessler/RobotsDisallowed
 
 	# FuzzDB
-	git clone https://github.com/fuzzdb-project/fuzzdb --depth 1
+	git clone --single-branch --depth 1 https://github.com/fuzzdb-project/fuzzdb
 fi

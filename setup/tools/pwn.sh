@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Include our functions
-source functions.sh
+source /setup/functions.sh
 
 # Make our directory
 mkdir -p /opt/tools/pwn
@@ -19,7 +19,7 @@ done
 # * GIT INSTALLED TOOLS *
 
 # PEDA
-git clone https://github.com/longld/peda.git /root/.peda
+git clone --single-branch --depth 1 https://github.com/longld/peda.git /root/.peda
 echo "source /root/.peda/peda.py" >> ~/.gdbinit
 
 # ROPGadget
