@@ -1,6 +1,7 @@
 name: build-pwnbox-on-commit
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*'
@@ -46,10 +47,10 @@ jobs:
         with:
           context: .
           push: true
-          build-args:
+          build-args: |
             BUILD_DATE=${{ steps.vars.outputs.date }}
-            BUILD_VERSION="${{ steps.currentTag.outputs.tag }}"
-            VCF_REF="${GITHUB_SHA::8}"
+            BUILD_VERSION=${{ steps.currentTag.outputs.tag }}
+            VCF_REF=${GITHUB_SHA::8}
           tags: |
             deadpackets/pwnbox:latest
             ghcr.io/deadpackets/pwnbox:latest
