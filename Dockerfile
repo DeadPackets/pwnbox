@@ -25,16 +25,15 @@ LABEL org.label-schema.license=MIT
 USER root
 ENV DEBIAN_FRONTEND noninteractive
 
+# Get the latest updates
+RUN apt update && apt upgrade -y
+
 # Install apt-fast repo
 RUN echo "deb http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main" > /etc/apt/sources.list.d/apt-fast.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B
-
-# Get the latest updates
-RUN apt update && \
-	apt upgrade -y
+RUN apt install -y gnupg && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B
 
 # Install apt-fast first
-RUN apt install -y apt-fast
+RUN apt update && apt install -y apt-fast
 
 # Install some essentials
 RUN	apt-fast install -y locales man-db git wget curl python2.7 python3 python3-dev python3-pip python3-venv python3-setuptools netcat ruby sudo jq nmap && \

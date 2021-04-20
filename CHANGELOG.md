@@ -1,3 +1,3 @@
-# PwnBox - v2.1.1
+# PwnBox - v2.1.2
 
-* Fixed issue with Github Actions.
+* Learned a valuable lesson, test builds locally before pushing. Fixed an issue in the build process.
