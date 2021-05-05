@@ -8,7 +8,7 @@ mkdir -p /opt/tools/forensics
 cd /opt/tools/forensics
 
 # * APT INSTALLED TOOLS *
-TOOLS=("foremost" "apktool" "binwalk" "steghide" "stegsnow" "exiftool" "groff" "tcpflow" "tesseract-ocr")
+TOOLS=("foremost" "apktool" "binwalk" "steghide" "stegsnow" "exiftool" "groff" "tcpflow" "tesseract-ocr" "file")
 apt-fast install --no-install-recommends -y ${TOOLS[@]}
 for tool in "${TOOLS[@]}"
 do
