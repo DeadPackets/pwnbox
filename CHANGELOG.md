@@ -1,4 +1,2 @@
-# PwnBox - v2.4.0
-
-* Installed proper version of pwncat.
-* Installed `file` command.
+# PwnBox - v2.4.1
+Weekly update.
