@@ -23,11 +23,11 @@ git clone --single-branch --depth 1 https://github.com/longld/peda.git /root/.pe
 echo "source /root/.peda/peda.py" >> ~/.gdbinit
 
 # ROPGadget
-pip3 install ropgadget
+pip3 install --no-cache-dir ropgadget
 echo "ROPGadget" >> /opt/tools/pwn/apt_tools.txt
 
 # PwnTools (both versions)
-pip3 install pwntools
+pip3 install --no-cache-dir pwntools
 python2.7 -m pip install pwntools
 echo "pwntools" >> /opt/tools/pwn/apt_tools.txt
 

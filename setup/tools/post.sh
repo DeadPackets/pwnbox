@@ -29,8 +29,5 @@ mkdir -p pspy && cd pspy
 curl --silent https://api.github.com/repos/DominicBreuker/pspy/releases/latest | jq .assets[].browser_download_url -r | xargs wget -q
 cd ..
 
-# Windows-Kernel-Exploits
-git clone --single-branch --depth 1 https://github.com/SecWiki/windows-kernel-exploits
-
 # WinPwn
 git clone --single-branch --depth 1 https://github.com/S3cur3Th1sSh1t/WinPwn

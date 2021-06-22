@@ -22,9 +22,9 @@ pip_install_reqs() {
 		cd $1
 		if [[ $2 == '3' ]];
 		then
-			pip3 install -r requirements.txt
+			pip3 install --no-cache-dir -r requirements.txt
 		else
-			python2.7 -m pip install -r requirements.txt
+			python2.7 -m pip install --no-cache-dir -r requirements.txt
 		fi
 		cd ..
 	fi

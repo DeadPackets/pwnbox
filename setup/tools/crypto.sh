@@ -19,11 +19,11 @@ done
 # * GIT INSTALLED TOOLS *
 
 # xortool
-pip3 install xortool
+pip3 install --no-cache-dir xortool
 echo "xortool" >> /opt/tools/crypto/apt_tools.txt
 
 # ciphey
-pip3 install ciphey --upgrade
+pip3 install --no-cache-dir ciphey --upgrade
 echo "ciphey" >> /opt/tools/crypto/apt_tools.txt
 
 # RsaCtfTool

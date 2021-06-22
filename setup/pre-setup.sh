@@ -14,7 +14,7 @@ apt-fast install --no-install-recommends -y build-essential locales man-db git w
 wget https://bootstrap.pypa.io/pip/2.7/get-pip.py -O /tmp/get-pip.py && python2.7 /tmp/get-pip.py && rm /tmp/get-pip.py
 
 # Install wheel to allow faster pip installs
-pip3 install wheel
+pip3 install --no-cache-dir wheel
 python2.7 -m pip install wheel
 
 # Set the locale

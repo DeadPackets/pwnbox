@@ -16,7 +16,7 @@ done
 # * GIT INSTALLED TOOLS *
 
 # Droopescan
-pip3 install droopescan
+pip3 install --no-cache-dir droopescan
 echo "droopescan" >> /opt/tools/network/apt_tools.txt
 
 # RustScan

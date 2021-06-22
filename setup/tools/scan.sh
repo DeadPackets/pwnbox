@@ -10,7 +10,7 @@ cd /opt/tools/scan
 # * GIT INSTALLED TOOLS *
 
 # AutoRecon
-pip3 install git+https://github.com/Tib3rius/AutoRecon.git
+pip3 install --no-cache-dir git+https://github.com/Tib3rius/AutoRecon.git
 echo "autorecon" >> /opt/tools/scan/apt_tools.txt
 
 # nmapAutomator
