@@ -5,11 +5,11 @@ source /setup/functions.sh
 
 # Make our directory
 mkdir -p /opt/tools/pwn
-cd /opt/tools/pwn
+cd /opt/tools/pwn || exit
 
 # * APT INSTALLED TOOLS *
 TOOLS=("libc6-i386" "gdb")
-apt-fast install --no-install-recommends -y ${TOOLS[@]}
+apt-fast install --no-install-recommends -y "${TOOLS[@]}"
 for tool in "${TOOLS[@]}"
 do
 	:

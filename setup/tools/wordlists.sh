@@ -4,7 +4,7 @@ if [[ $NO_WORDLISTS != 'yes' ]];
 then
 	# Make our directory
 	mkdir -p /opt/tools/wordlists
-	cd /opt/tools/wordlists
+	cd /opt/tools/wordlists || exit
 
 	# * APT INSTALLED TOOLS *
 

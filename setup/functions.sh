@@ -4,14 +4,14 @@
 python_setup_install() {
 	if [[ $NO_PYTHON_INSTALL = 'no' ]];
 	then
-		cd $1
+		cd "$1" || return
 		if [[ $2 == '3' ]];
 		then
-			python3 setup.py install && python3 setup.py clean --all || true
+			(python3 setup.py install && python3 setup.py clean --all) || true
 		else
-			python2.7 setup.py install && python2.7 setup.py clean --all || true
+			(python2.7 setup.py install && python2.7 setup.py clean --all) || true
 		fi
-		cd ..
+		cd .. || return
 	fi
 }
 
@@ -19,13 +19,13 @@ python_setup_install() {
 pip_install_reqs() {
 	if [[ $NO_PIP_INSTALL = 'no' ]];
 	then
-		cd $1
+		cd "$1" || return
 		if [[ $2 == '3' ]];
 		then
 			pip3 install --no-cache-dir -r requirements.txt
 		else
 			python2.7 -m pip install --no-cache-dir -r requirements.txt
 		fi
-		cd ..
+		cd .. || return
 	fi
 }

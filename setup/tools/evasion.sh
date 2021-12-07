@@ -2,7 +2,7 @@
 
 # Make our directory
 mkdir -p /opt/tools/evasion
-cd /opt/tools/evasion
+cd /opt/tools/evasion || exit
 
 # * APT INSTALLED TOOLS *
 

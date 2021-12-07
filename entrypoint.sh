@@ -2,15 +2,17 @@
 
 # Set up the shell
 cp -a /etc/skel/. /root/
-echo 'export PATH=$PATH:/root/.local/bin:/usr/share/doc/python3-impacket/examples/' >> /root/.zshrc
-echo 'export LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8' >> /root/.zshrc
-echo "export DISPLAY=$DISPLAY" >> /root/.zshrc
-echo "export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'" >> /root/.zshrc
+{
+	echo 'export PATH=$PATH:/root/.local/bin:/usr/share/doc/python3-impacket/examples/';
+	echo 'export LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8'
+	echo "export DISPLAY=$DISPLAY"
+	echo "export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'"
+} >> /root/.zshrc
 touch /root/.hushlogin
 cp /setup/banner.sh /etc/profile.d/banner.sh
 
 # Generate SSH keys
-cat /dev/zero | ssh-keygen -b 2048 -t rsa -q -N ""
+ssh-keygen -b 2048 -t rsa -q -N "" < /dev/zero
 
 # Copy public keys into SSH
 PUBLIC_KEYS=$(ls /opt/ssh/*.pub)
@@ -26,7 +28,7 @@ else
 	# Loop over the keys and import them
 	for key in $PUBLIC_KEYS; do
 		echo "Importing $key..."
-		cat $key >> /root/.ssh/authorized_keys.import
+		cat "$key" >> /root/.ssh/authorized_keys.import
 	done
 
 	# Merge the two files

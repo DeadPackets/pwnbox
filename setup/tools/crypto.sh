@@ -5,11 +5,11 @@ source /setup/functions.sh
 
 # Make our directory
 mkdir -p /opt/tools/crypto
-cd /opt/tools/crypto
+cd /opt/tools/crypto || exit
 
 # * APT INSTALLED TOOLS *
 TOOLS=("hash-identifier")
-apt-fast install --no-install-recommends -y ${TOOLS[@]}
+apt-fast install --no-install-recommends -y "${TOOLS[@]}"
 for tool in "${TOOLS[@]}"
 do
 	:

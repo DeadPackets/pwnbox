@@ -1,4 +1,4 @@
-FROM kalilinux/kali-rolling
+FROM kalilinux/kali-rolling:latest
 LABEL maintainer="deadpackets@protonmail.com"
 
 # Build arguments needed for build
@@ -37,12 +37,13 @@ COPY ssh/* /etc/ssh/
 # 6/7. Cleaning APT cache and packages
 
 COPY setup /setup
-RUN cd /setup && chmod +x /setup/* && chmod +x /setup/tools/* && \
+WORKDIR /setup
+RUN chmod +x /setup/* && chmod +x /setup/tools/* && \
 	./pre-setup.sh && \
 	./setup.sh && \
 	./shrink.sh && \
-	apt update && update-command-not-found && apt-file update && \
-	apt autoremove -y && apt autoclean -y && apt clean -y && \
+	apt-get update && update-command-not-found && apt-file update && \
+	apt-get autoremove -y && apt-get autoclean -y && apt-get clean -y && \
 	rm -rf /var/cache/apt/*
 
 # RUN /setup/tools/crypto.sh

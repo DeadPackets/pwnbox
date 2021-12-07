@@ -5,11 +5,11 @@ source /setup/functions.sh
 
 # Make our directory
 mkdir -p /opt/tools/web
-cd /opt/tools/web
+cd /opt/tools/web || exit
 
 # * APT INSTALLED TOOLS *
 TOOLS=("ffuf" "sqlmap" "whatweb" "dirb" "gobuster" "nikto" "wfuzz" "wpscan" "httpie" "cewl" "recon-ng" "webshells")
-apt-fast install --no-install-recommends -y ${TOOLS[@]}
+apt-fast install --no-install-recommends -y "${TOOLS[@]}"
 for tool in "${TOOLS[@]}"
 do
 	:

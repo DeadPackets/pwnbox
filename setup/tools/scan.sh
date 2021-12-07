@@ -5,7 +5,7 @@ source /setup/functions.sh
 
 # Make our directory
 mkdir -p /opt/tools/scan
-cd /opt/tools/scan
+cd /opt/tools/scan || exit
 
 # * GIT INSTALLED TOOLS *
 
