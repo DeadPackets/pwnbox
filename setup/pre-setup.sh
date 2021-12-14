@@ -7,7 +7,7 @@ apt update && apt upgrade -y && \
 	apt update && apt install -y apt-fast
 
 # Install some essentials
-apt-fast install --no-install-recommends -y build-essential locales man-db git wget curl python2.7 python3 python3-dev python3-pip python3-venv python3-setuptools netcat-openbsd ruby sudo jq nmap && \
+apt-fast install --no-install-recommends -y build-essential locales man-db git wget curl python2.7 python3 python3-dev python3-pip python3-venv python3-setuptools netcat-openbsd ruby ruby-dev sudo jq nmap && \
 	apt-fast install --no-install-recommends -y python-is-python3
 
 # Install pip2.7
