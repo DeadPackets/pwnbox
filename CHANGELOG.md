@@ -1,4 +1,4 @@
-# PwnBox - v2.6.0
+# PwnBox - v2.7.0
 
-- Linted `Dockerfile` with hadolint.
-- Linted all `.sh` files with shellcheck.
+- Added `arm64` builds to the CI.
+- Fixed an issue with installing `netcat` and specified `netcat-openbsd`
