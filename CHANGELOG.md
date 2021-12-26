@@ -1,4 +1,2 @@
-# PwnBox - v2.7.1
-
-- Disabled `arm` builds for now since they add so much build time.
-- Added `openvpn` to installed tools.
+# PwnBox - v2.8.1
+Weekly update.
