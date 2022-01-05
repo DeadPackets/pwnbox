@@ -8,7 +8,7 @@ mkdir -p /opt/tools/web
 cd /opt/tools/web || exit
 
 # * APT INSTALLED TOOLS *
-TOOLS=("ffuf" "sqlmap" "whatweb" "dirb" "gobuster" "nikto" "wfuzz" "wpscan" "httpie" "cewl" "recon-ng" "webshells")
+TOOLS=("ffuf" "sqlmap" "whatweb" "dirb" "gobuster" "nikto" "wfuzz" "httpie" "cewl" "recon-ng" "webshells")
 apt-fast install --no-install-recommends -y "${TOOLS[@]}"
 for tool in "${TOOLS[@]}"
 do
@@ -17,6 +17,13 @@ do
 done
 
 # * GIT INSTALLED TOOLS *
+
+# wpscan
+gem install wpscan
+
+# XSSStrike
+git clone --single-branch --depth 1 https://github.com/s0md3v/XSStrike
+pip_install_reqs "XSStrike" "3"
 
 # Arjun
 git clone --single-branch --depth 1 https://github.com/s0md3v/Arjun
