@@ -8,4 +8,3 @@ for script in ./tools/*.sh; do
 	echo "Executing $script..."
 	bash "$script"
 done
-

@@ -51,3 +51,6 @@ pip_install_reqs "dirsearch" "3"
 git clone --single-branch --depth 1 https://github.com/epinna/tplmap
 pip_install_reqs "tplmap" "2"
 
+# Droopescan
+pip3 install --no-cache-dir droopescan
+echo "droopescan" >> /opt/tools/network/apt_tools.txt

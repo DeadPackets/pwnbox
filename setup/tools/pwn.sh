@@ -34,4 +34,3 @@ echo "pwntools" >> /opt/tools/pwn/apt_tools.txt
 # one_gadget
 gem install one_gadget
 echo "one_gadget" >> /opt/tools/pwn/apt_tools.txt
-
