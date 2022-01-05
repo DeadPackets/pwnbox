@@ -11,6 +11,9 @@ cp -a /etc/skel/. /root/
 touch /root/.hushlogin
 cp /setup/banner.sh /etc/profile.d/banner.sh
 
+# Add resolution to /etc/hosts for sudo and other tools
+echo "127.0.0.1\tpwnbox" >> /etc/hosts
+
 # Generate SSH keys
 ssh-keygen -b 2048 -t rsa -q -N "" < /dev/zero
 

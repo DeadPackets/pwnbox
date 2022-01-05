@@ -31,6 +31,3 @@ echo "root:toor" | chpasswd && \
 # Setting up the shell
 apt-fast install --no-install-recommends -y zsh zsh-syntax-highlighting zsh-autosuggestions command-not-found
 chsh -s /bin/zsh
-
-# Add resolution to /etc/hosts for sudo and other tools
-echo "127.0.0.1\tpwnbox" >> /etc/hosts
