@@ -1,5 +1,4 @@
-# PwnBox - v2.9.1
+# PwnBox - v2.9.2
 
-- Cleanup of build scripts
-- Added additional tools for network exploitation
-- Moved some tools from apt to git
+- Fixed issue with adding pwnbox entry to `/etc/hosts`
+
