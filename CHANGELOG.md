@@ -1,7 +1,3 @@
-# PwnBox - v2.9.3
+# PwnBox - v2.9.4
 
-- Added IPv6 support (Credits to @HiddevH)
-- Added Impacket scripts in network category
-- Fixed an issue with installed `deathstar-empire`
-- Moved `rustscan` to scan category
-- Added additional Active Directory related tools
+- Added ARM64 builds to the CI
