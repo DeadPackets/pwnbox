@@ -1,4 +1,7 @@
-# PwnBox - v2.9.2
+# PwnBox - v2.9.3
 
-- Fixed issue with adding pwnbox entry to `/etc/hosts`
-
+- Added IPv6 support (Credits to @HiddevH)
+- Added Impacket scripts in network category
+- Fixed an issue with installed `deathstar-empire`
+- Moved `rustscan` to scan category
+- Added additional Active Directory related tools

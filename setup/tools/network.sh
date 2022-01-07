@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Include our functions
+source /setup/functions.sh
+
 # Make our directory
 mkdir -p /opt/tools/network
 cd /opt/tools/network || exit
@@ -14,11 +17,6 @@ do
 done
 
 # * GIT INSTALLED TOOLS *
-
-# RustScan
-curl --silent https://api.github.com/repos/RustScan/RustScan/releases/latest | jq .assets[].browser_download_url -r | grep "amd64" | xargs wget -q -O rustscan.deb
-dpkg -i rustscan.deb && rm rustscan.deb
-echo "rustscan" >> /opt/tools/network/apt_tools.txt
 
 # CrackMapExec
 pip3 install pipx
@@ -37,3 +35,9 @@ pipx install deathstar-empire
 
 # ADRecon
 git clone --single-branch --depth 1 https://github.com/adrecon/ADRecon.git
+
+# ActiveDirectoryEnumeration
+git clone --single-branch --depth 1 https://github.com/CasperGN/ActiveDirectoryEnumeration
+
+# Impacket
+git clone --single-branch --depth 1 https://github.com/SecureAuthCorp/impacket
