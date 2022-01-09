@@ -1,3 +1,2 @@
-# PwnBox - v2.9.4
-
-- Added ARM64 builds to the CI
+# PwnBox - v2.9.5
+Weekly update.
