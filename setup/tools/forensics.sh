@@ -28,7 +28,6 @@ wget https://github.com/lukechampine/jsteg/releases/download/v0.3.0/slink-linux-
 chmod +x /usr/local/bin/jsteg /usr/local/bin/slink
 echo "jsteg" >> /opt/tools/forensics/apt_tools.txt
 
-
 # Katana
 apt-fast install --no-install-recommends -y python-tk tk-dev libffi-dev libssl-dev pandoc libgmp3-dev libzbar-dev tesseract-ocr xsel libpoppler-cpp-dev libmpc-dev libdbus-glib-1-dev ruby libenchant-2-dev apktool nodejs groff binwalk foremost tcpflow poppler-utils exiftool steghide stegsnow bison ffmpeg libgd-dev less libpoppler-cpp-dev pkg-config python3-dbus qpdf
 ln -s /usr/bin/stegsnow /usr/bin/snow

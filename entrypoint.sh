@@ -1,16 +1,5 @@
 #!/bin/bash
 
-# Set up the shell
-cp -a /etc/skel/. /root/
-{
-	echo 'export PATH=$PATH:/root/.local/bin:/usr/share/doc/python3-impacket/examples/';
-	echo 'export LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8'
-	echo "export DISPLAY=$DISPLAY"
-	echo "export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'"
-} >> /root/.zshrc
-touch /root/.hushlogin
-cp /setup/banner.sh /etc/profile.d/banner.sh
-
 # Add resolution to /etc/hosts for sudo and other tools
 echo -e "127.0.0.1\tpwnbox" >> /etc/hosts
 
@@ -39,6 +28,9 @@ else
 	rm /root/.ssh/authorized_keys.import /root/.ssh/authorized_keys.bak
 	echo "Imported all keys!"
 fi
+
+# OpenVPN - enable IPv6 to allow connection with HTB
+sysctl -w net.ipv6.conf.all.disable_ipv6=0
 
 # See if there is a startup script to run
 if [[ -f /mnt/external/pwnbox_entrypoint.sh ]]; then

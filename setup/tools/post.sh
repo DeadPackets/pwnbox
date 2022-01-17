@@ -6,6 +6,21 @@ cd /opt/tools/post || exit
 
 # * GIT INSTALLED TOOLS *
 
+# PwnCat
+apt-fast install -y libffi-dev
+pip3 install --no-cache-dir git+https://github.com/JohnHammond/base64io-python
+pip3 install --no-cache-dir -U git+https://github.com/calebstewart/paramiko
+pip3 install --no-cache-dir git+https://github.com/calebstewart/pwncat.git
+echo "pwncat" >> /opt/tools/post/apt_tools.txt
+
+# Empire Framework
+git clone --recursive --depth 1 --single-branch https://github.com/BC-SECURITY/Empire.git
+cd Empire
+yes | ./setup/install.sh
+
+# DeathStar
+pipx install deathstar-empire
+
 # Chisel
 mkdir -p chisel && cd chisel || exit
 # I am not including all the chisel builds to save space
@@ -14,9 +29,6 @@ cd ..
 
 # PowerSploit
 git clone https://github.com/PowerShellMafia/PowerSploit/
-
-# docker-escape
-curl --silent https://api.github.com/repos/PercussiveElbow/docker-escape-tool/releases/latest | jq .assets[].browser_download_url -r | xargs wget -q
 
 # les.sh
 wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O les.sh

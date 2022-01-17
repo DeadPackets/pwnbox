@@ -46,18 +46,6 @@ RUN chmod +x /setup/* && chmod +x /setup/tools/* && \
 	apt-get autoremove -y && apt-get autoclean -y && apt-get clean -y && \
 	rm -rf /var/cache/apt/*
 
-# RUN /setup/tools/crypto.sh
-# RUN /setup/tools/evasion.sh
-# RUN /setup/tools/exploit.sh
-# RUN /setup/tools/forensics.sh
-# RUN /setup/tools/network.sh
-# RUN /setup/tools/post.sh
-# RUN /setup/tools/pwn.sh
-# RUN /setup/tools/reverse.sh
-# RUN /setup/tools/util.sh
-# RUN /setup/tools/web.sh
-# RUN /setup/tools/wordlists.sh
-
 # Expose the SSH port
 EXPOSE 2222
 

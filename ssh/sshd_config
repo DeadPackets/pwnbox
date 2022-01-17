@@ -8,3 +8,4 @@ PermitRootLogin yes
 PrintMotd no
 AcceptEnv LANG LC_*
 Subsystem	sftp	/usr/lib/openssh/sftp-server
+X11Forwarding yes
