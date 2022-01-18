@@ -14,8 +14,7 @@ if [[ -z $PUBLIC_KEYS ]]; then
 else
 	# Backup the original authorized_keys
 	mkdir -p /root/.ssh
-	touch /root/.ssh/authorized_keys
-	cp /root/.ssh/authorized_keys /root/.ssh/authorized_keys.bak
+	cp /opt/ssh/authorized_keys /root/.ssh/authorized_keys.bak
 
 	# Loop over the keys and import them
 	for key in $PUBLIC_KEYS; do
