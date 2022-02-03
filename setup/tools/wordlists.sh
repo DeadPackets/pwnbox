@@ -19,7 +19,7 @@ then
 	# * GIT INSTALLED TOOLS *
 
 	# SecLists
-	git clone --single-branch --depth 1 https://github.com/danielmiessler/SecLists /usr/share/seclists
+	wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O SecLists.zip
 
 	# RobotsDisallowed
 	git clone --single-branch --depth 1 https://github.com/danielmiessler/RobotsDisallowed
