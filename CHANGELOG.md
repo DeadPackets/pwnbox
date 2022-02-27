@@ -1,2 +1,2 @@
-# PwnBox - v3.2.3
+# PwnBox - v3.2.4
 Weekly update.
