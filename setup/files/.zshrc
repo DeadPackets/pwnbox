@@ -16,3 +16,6 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#222222,bg=#aaaaaa,bold,underline"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Aliases
+alias ls='ls --color=yes'

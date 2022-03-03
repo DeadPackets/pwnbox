@@ -1,5 +1,4 @@
-# PwnBox - v3.2.0
+# PwnBox - v3.2.1
 
-- Fixed issue with setting up SSH
-- Removed the source repositories of some tools after installing
-- Downloaded SecLists as zipped file to reduce space
+- Disabled `gitstatusd` in Powerlevel10k
+- Fixed `ls` color formatting

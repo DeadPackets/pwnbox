@@ -53,10 +53,3 @@ git clone --single-branch --depth=1 https://github.com/romkatv/powerlevel10k.git
 # Copy and use custom .zshrc
 cp /setup/files/.zshrc /root/.zshrc
 cp /setup/files/.p10k.zsh /root/.p10k.zsh
-
-# Fetch gitstatusd to prevent startup message
-mkdir -p /root/.cache
-mkdir -p /root/.cache/gitstatus
-wget https://github.com/romkatv/gitstatus/releases/download/v1.5.1/gitstatusd-linux-x86_64.tar.gz -O /root/.cache/gitstatus/tmp.tar.gz
-tar xvzf /root/.cache/gitstatus/tmp.tar.gz --directory /root/.cache/gitstatus/
-rm -rf /root/.cache/gitstatus/tmp.tar.gz
