@@ -1,4 +1,2 @@
-# PwnBox - v3.2.5
-
-- Disabled `gitstatusd` in Powerlevel10k
-- Fixed `ls` color formatting
+# PwnBox - v3.2.6
+Weekly update.
