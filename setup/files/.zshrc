@@ -19,3 +19,4 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#222222,bg=#aaaaaa,bold,underline"
 
 # Aliases
 alias ls='ls --color=yes'
+alias unzip_seclists="7z x /opt/tools/wordlists/SecLists.zip -o/opt/tools/wordlists/ && mv /opt/tools/wordlists/SecLists-master /opt/tools/wordlists/SecLists && rm -rf /opt/tools/wordlists/SecLists.zip"

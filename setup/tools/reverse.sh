@@ -17,3 +17,4 @@ do
 done
 
 # * GIT INSTALLED TOOLS *
+# TODO: Install a GDB modifier like PEDA

@@ -8,7 +8,7 @@ mkdir -p /opt/tools/network
 cd /opt/tools/network || exit
 
 # * APT INSTALLED TOOLS *
-TOOLS=("smbmap" "enum4linux" "nbtscan" "onesixtyone" "oscanner" "smbclient" "smtp-user-enum" "snmp" "sslscan" "sipvicious" "tnscmd10g" "wkhtmltopdf" "hydra" "joomscan" "odat" "snmpcheck" "ldapscripts" "dnsrecon")
+TOOLS=("crackmapexec" "smbmap" "enum4linux" "nbtscan" "onesixtyone" "oscanner" "smbclient" "smtp-user-enum" "snmp" "sslscan" "sipvicious" "tnscmd10g" "wkhtmltopdf" "hydra" "joomscan" "odat" "snmpcheck" "ldapscripts" "dnsrecon")
 apt-fast install --no-install-recommends -y "${TOOLS[@]}"
 for tool in "${TOOLS[@]}"
 do
@@ -21,8 +21,7 @@ done
 # CrackMapExec
 pip3 install --no-cache-dir poetry pipx
 pipx ensurepath
-git clone --recursive --single-branch https://github.com/byt3bl33d3r/CrackMapExec
-cd CrackMapExec && pipx install .
+pipx install crackmapexec
 
 # Responder
 git clone --single-branch --depth 1 https://github.com/lgandx/Responder
