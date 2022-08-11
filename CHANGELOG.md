@@ -1,6 +1,3 @@
-# PwnBox - v3.3.0
+# PwnBox - v3.4.0
 
-* Fixed issue installing network tools
-* Properly installed crackmapexec
-* Added an alias to help extract SecLists if needed
-
+* Adding upgrading the packages on every build
