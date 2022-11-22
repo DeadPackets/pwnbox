@@ -18,6 +18,9 @@ wget https://bootstrap.pypa.io/pip/2.7/get-pip.py -O /tmp/get-pip.py && python2.
 pip3 install wheel
 python2.7 -m pip install wheel
 
+# Remove pip2.7 default alias
+rm /usr/local/bin/pip
+
 # Set the locale
 sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
 	locale-gen && \

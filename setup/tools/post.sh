@@ -8,18 +8,19 @@ cd /opt/tools/post || exit
 
 # PwnCat
 apt-fast install -y libffi-dev
-pip3 install --no-cache-dir git+https://github.com/JohnHammond/base64io-python
-pip3 install --no-cache-dir -U git+https://github.com/calebstewart/paramiko
-pip3 install --no-cache-dir git+https://github.com/calebstewart/pwncat.git
+pip3 install --no-cache-dir pwncat-cs pwncat
 echo "pwncat" >> /opt/tools/post/apt_tools.txt
+echo "pwncat-cs" >> /opt/tools/post/apt_tools.txt
 
 # Empire Framework
 git clone --recursive --depth 1 --single-branch https://github.com/BC-SECURITY/Empire.git
 cd Empire
 yes | ./setup/install.sh
+cd ..
 
 # DeathStar
 pipx install deathstar-empire
+echo "deathstar-empire" >> /opt/tools/post/apt_tools.txt
 
 # Chisel
 mkdir -p chisel && cd chisel || exit

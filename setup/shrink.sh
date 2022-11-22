@@ -14,3 +14,11 @@ rm -rf /usr/share/info/* /usr/share/groff/*
 
 # Remove pip cache
 rm -rf /root/.cache/pip
+
+# Remove openjdk (dont know why its installed tbh)
+apt-fast remove default-jdk default-jre-headless -y
+
+# Shrink seclists
+cd /usr/share || exit
+tar -c --lzma -v --exclude-vcs -f seclists.tar.lzma seclists
+rm -rf seclists/

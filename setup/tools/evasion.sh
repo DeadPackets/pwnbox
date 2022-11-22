@@ -24,4 +24,3 @@ git clone --single-branch --depth 1 https://github.com/danielbohannon/Invoke-Obf
 
 # DarkArmor
 git clone --single-branch --depth 1 https://github.com/bats3c/darkarmour
-

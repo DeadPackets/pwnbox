@@ -17,10 +17,6 @@ then
 	# done
 
 	# * GIT INSTALLED TOOLS *
-
-	# SecLists
-	wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O SecLists.zip
-
 	# RobotsDisallowed
 	git clone --single-branch --depth 1 https://github.com/danielmiessler/RobotsDisallowed
 

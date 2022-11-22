@@ -14,6 +14,13 @@ pip3 install --no-cache-dir git+https://github.com/Tib3rius/AutoRecon.git
 echo "autorecon" >> /opt/tools/scan/apt_tools.txt
 
 # RustScan
-curl --silent https://api.github.com/repos/RustScan/RustScan/releases/latest | jq .assets[].browser_download_url -r | grep "amd64" | xargs wget -q -O rustscan.deb
-dpkg -i rustscan.deb && rm rustscan.deb
+git clone --single-branch --depth 1 https://github.com/RustScan/RustScan
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source "/root/.cargo/env"
+cd RustScan
+cargo build --release
+cp target/release/rustscan /usr/local/bin
+cd ..
+rm -rf RustScan
+yes | rustup self uninstall
 echo "rustscan" >> /opt/tools/scan/apt_tools.txt
