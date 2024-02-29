@@ -45,7 +45,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -77,7 +77,7 @@ jobs:
           author_name: Github Action
           author_email: action@github.com
           message: '[GitHub Action] Update VERSION.txt'
-          push: true
+          push: origin HEAD:main
       -
         name: Release
         uses: ncipollo/release-action@v1
