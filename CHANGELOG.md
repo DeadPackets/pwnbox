@@ -1,4 +1,4 @@
-# PwnBox - v3.7.1
+# PwnBox - v3.7.2
 
 It's been a while since an update!
 
@@ -9,3 +9,4 @@ Here's what is new:
 - Added some more AD tools
 - Replaced using `setup.py` with `pip install .` on most tools
 - Added ARM64 builds!
+- Removed RsaCtfTool due to z3-solver taking FOREVER to build on ARM64.

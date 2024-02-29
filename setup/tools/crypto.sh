@@ -23,6 +23,6 @@ pip3 install --no-cache-dir xortool
 echo "xortool" >> /opt/tools/crypto/apt_tools.txt
 
 # RsaCtfTool
-git clone --single-branch --depth 1 https://github.com/RsaCtfTool/RsaCtfTool
-apt-fast --no-install-recommends install libgmp3-dev libmpc-dev -y
-pip_install_reqs "RsaCtfTool" "3"
+# git clone --single-branch --depth 1 https://github.com/RsaCtfTool/RsaCtfTool
+# apt-fast --no-install-recommends install libgmp3-dev libmpc-dev -y
+# pip_install_reqs "RsaCtfTool" "3"
