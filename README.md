@@ -1,6 +1,6 @@
 # PwnBox
 
-![GitHub](https://img.shields.io/github/license/deadpackets/pwnbox) ![Docker](https://badges.aleen42.com/src/docker.svg) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/deadpackets/pwnbox/build-pwnbox-on-commit) ![GitHub last commit](https://img.shields.io/github/last-commit/deadpackets/pwnbox) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/DeadPackets/pwnbox?label=latest-release) ![GitHub issues](https://img.shields.io/github/issues/deadpackets/pwnbox) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/latest?label=pwnbox%3Alatest) ![Docker Pulls](https://img.shields.io/docker/pulls/deadpackets/pwnbox)
+![GitHub](https://img.shields.io/github/license/deadpackets/pwnbox) ![Docker](https://badges.aleen42.com/src/docker.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/deadpackets/pwnbox) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/DeadPackets/pwnbox?label=latest-release) ![GitHub issues](https://img.shields.io/github/issues/deadpackets/pwnbox) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/deadpackets/pwnbox/latest?label=pwnbox%3Alatest) ![Docker Pulls](https://img.shields.io/docker/pulls/deadpackets/pwnbox)
 
 <p align="center">
 
