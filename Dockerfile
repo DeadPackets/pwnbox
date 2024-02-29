@@ -1,4 +1,4 @@
-FROM kalilinux/kali-rolling:latest
+FROM kalilinux/kali-rolling:latest AS builder
 LABEL maintainer="deadpackets@protonmail.com"
 
 # Build arguments needed for build
@@ -54,3 +54,10 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh; echo "$BUILD_VERSION" > /opt/VERSION.txt
 
 ENTRYPOINT ["/entrypoint.sh"]
+
+# Squash everything into one layer
+FROM scratch
+
+COPY --from=builder / /
+USER root
+ENTRYPOINT [ "/entrypoint.sh" ]
