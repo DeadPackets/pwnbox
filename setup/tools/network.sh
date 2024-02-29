@@ -8,7 +8,7 @@ mkdir -p /opt/tools/network
 cd /opt/tools/network || exit
 
 # * APT INSTALLED TOOLS *
-TOOLS=("smbmap" "nbtscan" "onesixtyone" "smbclient" "smtp-user-enum" "snmp" "sslscan" "sipvicious" "tnscmd10g" "wkhtmltopdf" "hydra" "joomscan" "odat" "snmpcheck" "ldapscripts" "dnsrecon" "samba-common-bin")
+TOOLS=("smbmap" "nbtscan" "onesixtyone" "smbclient" "smtp-user-enum" "snmp" "sslscan" "sipvicious" "tnscmd10g" "wkhtmltopdf" "hydra" "joomscan" "odat" "snmpcheck" "ldapscripts" "dnsrecon" "samba-common-bin" "enum4linux-ng")
 apt-fast install --no-install-recommends -y "${TOOLS[@]}"
 for tool in "${TOOLS[@]}"
 do
@@ -18,29 +18,20 @@ done
 
 # * GIT INSTALLED TOOLS *
 
-# CrackMapExec
+# NetExec (CrackMapExec fork)
 pip3 install --no-cache-dir poetry pipx
 pipx ensurepath
-pipx install crackmapexec
+pipx install git+https://github.com/Pennyw0rth/NetExec
+echo "netexec" >> /opt/tools/network/apt_tools.txt
 
 # Responder
 git clone --single-branch --depth 1 https://github.com/lgandx/Responder
-
-# enum4linux-ng
-git clone --single-branch --depth 1 https://github.com/cddmp/enum4linux-ng
-pip_install_reqs "enum4linux-ng" "3"
-python_setup_install "enum4linux-ng" "3"
-rm -rf enum4linux-ng
-echo "enum4linux-ng" >> /opt/tools/network/apt_tools.txt
 
 # ADRecon
 git clone --single-branch --depth 1 https://github.com/adrecon/ADRecon.git
 
 # ActiveDirectoryEnumeration
-git clone --single-branch --depth 1 https://github.com/CasperGN/ActiveDirectoryEnumeration
-pip_install_reqs "ActiveDirectoryEnumeration-ng" "3"
-SETUPTOOLS_USE_DISTUTILS=stdlib python_setup_install "ActiveDirectoryEnumeration" "3"
-rm -rf ActiveDirectoryEnumeration
+pip3 install --no-cache-dir ActiveDirectoryEnum
 echo "ActiveDirectoryEnumeration (python3 -m ade)" >> /opt/tools/network/apt_tools.txt
 
 # Impacket
@@ -52,4 +43,8 @@ pip3 install --no-cache-dir bloodhound
 # SprayHound
 echo "sprayhound" >> /opt/tools/network/apt_tools.txt
 apt-fast install -y libldap2-dev libsasl2-dev libssl-dev
-pip3 install sprayhound
+pip3 install --no-cache-dir sprayhound
+
+# Certipy
+pip3 install --no-cache-dir certipy-ad
+echo "certipy" >> /opt/tools/network/apt_tools.txt
