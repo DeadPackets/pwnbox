@@ -21,7 +21,7 @@ jobs:
         name: Get variables
         id: vars
         run: |
-          echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%SZ')"
+          echo "date=$(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
       -
         name: Get Current Tag
         id: currentTag
